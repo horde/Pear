@@ -79,7 +79,8 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                         'composer.*',
                         '.horde.yml',
                         '.git/*',
-                        '.gitignore'
+                        '.gitignore',
+                        '.travis.yml',
                     ),
                     $this->getRepositoryRoot()
                 ),
