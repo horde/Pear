@@ -6,7 +6,7 @@ The Horde_Pear_Remote class provides you with high-level access to the REST inte
 
 Creating an instance of this class without providing any arguments to the constructor will allow to access the PEAR server at `pear.horde.org`_.
 
-.. _`pear.horde.org`: http://pear.horde.org
+.. _`pear.horde.org`: https://pear.horde.org
 
 ::
 
@@ -59,10 +59,10 @@ Returns the channel.xml for the server as string.
      <servers>
          <primary>
              <rest>
-                 <baseurl type="REST1.0">http://pear.horde.org/rest/</baseurl>
-                 <baseurl type="REST1.1">http://pear.horde.org/rest/</baseurl>
-                 <baseurl type="REST1.2">http://pear.horde.org/rest/</baseurl>
-                 <baseurl type="REST1.3">http://pear.horde.org/rest/</baseurl>
+                 <baseurl type="REST1.0">https://pear.horde.org/rest/</baseurl>
+                 <baseurl type="REST1.1">https://pear.horde.org/rest/</baseurl>
+                 <baseurl type="REST1.2">https://pear.horde.org/rest/</baseurl>
+                 <baseurl type="REST1.3">https://pear.horde.org/rest/</baseurl>
              </rest>
          </primary>
      </servers>
@@ -109,7 +109,7 @@ The "stability" parameter works in the same way as for the getLatestRelease() me
 
  print($pear->getLatestDownloadUri('Horde_Core'));
  
- http://pear.horde.org/get/Horde_Core-1.7.0.tgz
+ https://pear.horde.org/get/Horde_Core-1.7.0.tgz
 
 --------------------
  getLatestDetails()
