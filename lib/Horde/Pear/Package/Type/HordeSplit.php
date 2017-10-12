@@ -9,7 +9,6 @@
  * @author   Michael J Rubinsky <mrubinsk@horde.org>
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @link     http://pear.horde.org/index.php?package=Pear
  */
 
 /**
@@ -25,7 +24,6 @@
  * @author   Michael J Rubinsky <mrubinsk@horde.org>
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
- * @link     http://pear.horde.org/index.php?package=Pear
  */
 class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
 {
