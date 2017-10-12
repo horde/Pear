@@ -42,7 +42,7 @@ extends Horde_Test_Case
 * First stable release for A.
  </n>
     <f>439824</f>
-    <g>http://pear.horde.org/get/A-1.0.0</g>
+    <g>https://pear.horde.org/get/A-1.0.0</g>
     <x xlink:href="package.1.0.0.xml"/>
 </r>';
     }
@@ -64,7 +64,7 @@ extends Horde_Test_Case
 * First stable release for B.
  </n>
     <f>439824</f>
-    <g>http://pear.horde.org/get/B-1.0.0</g>
+    <g>https://pear.horde.org/get/B-1.0.0</g>
     <x xlink:href="package.1.0.0.xml"/>
 </r>';
     }

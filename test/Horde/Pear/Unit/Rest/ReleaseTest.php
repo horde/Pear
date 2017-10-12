@@ -79,7 +79,7 @@ extends Horde_Pear_TestCase
     public function testDownloadUri()
     {
         $this->assertEquals(
-            'http://pear.horde.org/get/Horde_Core-1.0.0.tgz',
+            'https://pear.horde.org/get/Horde_Core-1.0.0.tgz',
             $this->_getReleaseWrapper()->getDownloadUri()
         );
     }
@@ -113,7 +113,7 @@ extends Horde_Pear_TestCase
 * [mms] Fix adding port to certain urls passed to Horde::url() (Bug #9712).
  </n>
     <f>439824</f>
-    <g>http://pear.horde.org/get/Horde_Core-1.0.0</g>
+    <g>https://pear.horde.org/get/Horde_Core-1.0.0</g>
     <x xlink:href="package.1.0.0.xml"/>
 </r>';
     }

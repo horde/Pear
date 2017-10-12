@@ -54,7 +54,7 @@ extends Horde_Pear_TestCase
     public function testLatestUri()
     {
         $this->assertEquals(
-            'http://pear.horde.org/get/A-1.0.0.tgz',
+            'https://pear.horde.org/get/A-1.0.0.tgz',
             $this->_getLatestRemote()->getLatestDownloadUri('A')
         );
     }
