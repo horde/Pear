@@ -10,7 +10,7 @@
   <email>p@rdus.de</email>
   <active>yes</active>
  </lead>
- <date>2017-10-16</date>
+ <date>2017-10-17</date>
  <version>
   <release>1.0.0alpha13</release>
   <api>1.0.0</api>
@@ -31,7 +31,6 @@
       <dir name="examples">
        <file name="remote.php" role="doc" />
       </dir> <!-- /doc/Horde/Pear/examples -->
-      <file name="COPYING" role="doc" />
       <file name="DOCS_ORIGIN" role="doc" />
       <file name="REMOTE_PEAR_SERVER" role="doc" />
       <file name="TODO" role="doc" />
@@ -291,6 +290,7 @@
      </dir> <!-- /test/Horde/Pear -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
+   <file name="LICENSE" role="doc" />
    <file name="README.rst" role="doc" />
   </dir> <!-- / -->
  </contents>
@@ -352,27 +352,13 @@
  </dependencies>
  <phprelease>
   <filelist>
-   <install as="README.rst" name="README.rst" />
-   <install as="COPYING" name="doc/Horde/Pear/COPYING" />
    <install as="DOCS_ORIGIN" name="doc/Horde/Pear/DOCS_ORIGIN" />
+   <install as="examples/remote.php" name="doc/Horde/Pear/examples/remote.php" />
    <install as="REMOTE_PEAR_SERVER" name="doc/Horde/Pear/REMOTE_PEAR_SERVER" />
    <install as="TODO" name="doc/Horde/Pear/TODO" />
-   <install as="examples/remote.php" name="doc/Horde/Pear/examples/remote.php" />
    <install as="Horde/Pear/Exception.php" name="lib/Horde/Pear/Exception.php" />
-   <install as="Horde/Pear/Registry.php" name="lib/Horde/Pear/Registry.php" />
-   <install as="Horde/Pear/Remote.php" name="lib/Horde/Pear/Remote.php" />
-   <install as="Horde/Pear/Rest.php" name="lib/Horde/Pear/Rest.php" />
    <install as="Horde/Pear/Package/Contents.php" name="lib/Horde/Pear/Package/Contents.php" />
-   <install as="Horde/Pear/Package/Dependencies.php" name="lib/Horde/Pear/Package/Dependencies.php" />
-   <install as="Horde/Pear/Package/Task.php" name="lib/Horde/Pear/Package/Task.php" />
-   <install as="Horde/Pear/Package/Type.php" name="lib/Horde/Pear/Package/Type.php" />
-   <install as="Horde/Pear/Package/Xml.php" name="lib/Horde/Pear/Package/Xml.php" />
    <install as="Horde/Pear/Package/Contents/Ignore.php" name="lib/Horde/Pear/Package/Contents/Ignore.php" />
-   <install as="Horde/Pear/Package/Contents/Include.php" name="lib/Horde/Pear/Package/Contents/Include.php" />
-   <install as="Horde/Pear/Package/Contents/InstallAs.php" name="lib/Horde/Pear/Package/Contents/InstallAs.php" />
-   <install as="Horde/Pear/Package/Contents/List.php" name="lib/Horde/Pear/Package/Contents/List.php" />
-   <install as="Horde/Pear/Package/Contents/PatternsMatcher.php" name="lib/Horde/Pear/Package/Contents/PatternsMatcher.php" />
-   <install as="Horde/Pear/Package/Contents/Role.php" name="lib/Horde/Pear/Package/Contents/Role.php" />
    <install as="Horde/Pear/Package/Contents/Ignore/Composer.php" name="lib/Horde/Pear/Package/Contents/Ignore/Composer.php" />
    <install as="Horde/Pear/Package/Contents/Ignore/Composite.php" name="lib/Horde/Pear/Package/Contents/Ignore/Composite.php" />
    <install as="Horde/Pear/Package/Contents/Ignore/Dot.php" name="lib/Horde/Pear/Package/Contents/Ignore/Dot.php" />
@@ -381,92 +367,100 @@
    <install as="Horde/Pear/Package/Contents/Ignore/Nothing.php" name="lib/Horde/Pear/Package/Contents/Ignore/Nothing.php" />
    <install as="Horde/Pear/Package/Contents/Ignore/Patterns.php" name="lib/Horde/Pear/Package/Contents/Ignore/Patterns.php" />
    <install as="Horde/Pear/Package/Contents/Ignore/Symlink.php" name="lib/Horde/Pear/Package/Contents/Ignore/Symlink.php" />
+   <install as="Horde/Pear/Package/Contents/Include.php" name="lib/Horde/Pear/Package/Contents/Include.php" />
    <install as="Horde/Pear/Package/Contents/Include/All.php" name="lib/Horde/Pear/Package/Contents/Include/All.php" />
    <install as="Horde/Pear/Package/Contents/Include/Patterns.php" name="lib/Horde/Pear/Package/Contents/Include/Patterns.php" />
+   <install as="Horde/Pear/Package/Contents/InstallAs.php" name="lib/Horde/Pear/Package/Contents/InstallAs.php" />
    <install as="Horde/Pear/Package/Contents/InstallAs/Horde.php" name="lib/Horde/Pear/Package/Contents/InstallAs/Horde.php" />
    <install as="Horde/Pear/Package/Contents/InstallAs/HordeApplication.php" name="lib/Horde/Pear/Package/Contents/InstallAs/HordeApplication.php" />
    <install as="Horde/Pear/Package/Contents/InstallAs/HordeComponent.php" name="lib/Horde/Pear/Package/Contents/InstallAs/HordeComponent.php" />
    <install as="Horde/Pear/Package/Contents/InstallAs/HordeRole.php" name="lib/Horde/Pear/Package/Contents/InstallAs/HordeRole.php" />
    <install as="Horde/Pear/Package/Contents/InstallAs/HordeTheme.php" name="lib/Horde/Pear/Package/Contents/InstallAs/HordeTheme.php" />
+   <install as="Horde/Pear/Package/Contents/List.php" name="lib/Horde/Pear/Package/Contents/List.php" />
+   <install as="Horde/Pear/Package/Contents/PatternsMatcher.php" name="lib/Horde/Pear/Package/Contents/PatternsMatcher.php" />
+   <install as="Horde/Pear/Package/Contents/Role.php" name="lib/Horde/Pear/Package/Contents/Role.php" />
    <install as="Horde/Pear/Package/Contents/Role/HordeApplication.php" name="lib/Horde/Pear/Package/Contents/Role/HordeApplication.php" />
    <install as="Horde/Pear/Package/Contents/Role/HordeComponent.php" name="lib/Horde/Pear/Package/Contents/Role/HordeComponent.php" />
+   <install as="Horde/Pear/Package/Dependencies.php" name="lib/Horde/Pear/Package/Dependencies.php" />
+   <install as="Horde/Pear/Package/Task.php" name="lib/Horde/Pear/Package/Task.php" />
    <install as="Horde/Pear/Package/Task/UpdateContents.php" name="lib/Horde/Pear/Package/Task/UpdateContents.php" />
+   <install as="Horde/Pear/Package/Type.php" name="lib/Horde/Pear/Package/Type.php" />
    <install as="Horde/Pear/Package/Type/Horde.php" name="lib/Horde/Pear/Package/Type/Horde.php" />
    <install as="Horde/Pear/Package/Type/HordeSplit.php" name="lib/Horde/Pear/Package/Type/HordeSplit.php" />
    <install as="Horde/Pear/Package/Type/HordeTheme.php" name="lib/Horde/Pear/Package/Type/HordeTheme.php" />
+   <install as="Horde/Pear/Package/Xml.php" name="lib/Horde/Pear/Package/Xml.php" />
    <install as="Horde/Pear/Package/Xml/Contents.php" name="lib/Horde/Pear/Package/Xml/Contents.php" />
    <install as="Horde/Pear/Package/Xml/Directory.php" name="lib/Horde/Pear/Package/Xml/Directory.php" />
-   <install as="Horde/Pear/Package/Xml/Factory.php" name="lib/Horde/Pear/Package/Xml/Factory.php" />
    <install as="Horde/Pear/Package/Xml/Element/Directory.php" name="lib/Horde/Pear/Package/Xml/Element/Directory.php" />
    <install as="Horde/Pear/Package/Xml/Element/File.php" name="lib/Horde/Pear/Package/Xml/Element/File.php" />
+   <install as="Horde/Pear/Package/Xml/Factory.php" name="lib/Horde/Pear/Package/Xml/Factory.php" />
+   <install as="Horde/Pear/Registry.php" name="lib/Horde/Pear/Registry.php" />
+   <install as="Horde/Pear/Remote.php" name="lib/Horde/Pear/Remote.php" />
+   <install as="Horde/Pear/Rest.php" name="lib/Horde/Pear/Rest.php" />
    <install as="Horde/Pear/Rest/Dependencies.php" name="lib/Horde/Pear/Rest/Dependencies.php" />
    <install as="Horde/Pear/Rest/Package.php" name="lib/Horde/Pear/Rest/Package.php" />
    <install as="Horde/Pear/Rest/PackageList.php" name="lib/Horde/Pear/Rest/PackageList.php" />
    <install as="Horde/Pear/Rest/Release.php" name="lib/Horde/Pear/Rest/Release.php" />
    <install as="Horde/Pear/Rest/Releases.php" name="lib/Horde/Pear/Rest/Releases.php" />
+   <install as="LICENSE" name="LICENSE" />
+   <install as="README.rst" name="README.rst" />
    <install as="Horde/Pear/AllTests.php" name="test/Horde/Pear/AllTests.php" />
    <install as="Horde/Pear/Autoload.php" name="test/Horde/Pear/Autoload.php" />
    <install as="Horde/Pear/bootstrap.php" name="test/Horde/Pear/bootstrap.php" />
-   <install as="Horde/Pear/phpunit.xml" name="test/Horde/Pear/phpunit.xml" />
-   <install as="Horde/Pear/TestCase.php" name="test/Horde/Pear/TestCase.php" />
-   <install as="Horde/Pear/fixture/package.xml.v1.0" name="test/Horde/Pear/fixture/package.xml.v1.0" />
    <install as="Horde/Pear/fixture/horde/.gitignore" name="test/Horde/Pear/fixture/horde/.gitignore" />
-   <install as="Horde/Pear/fixture/horde/framework/directory/package.xml" name="test/Horde/Pear/fixture/horde/framework/directory/package.xml" />
-   <install as="Horde/Pear/fixture/horde/framework/directory/test.php" name="test/Horde/Pear/fixture/horde/framework/directory/test.php" />
    <install as="Horde/Pear/fixture/horde/framework/directory/lib/Old.php" name="test/Horde/Pear/fixture/horde/framework/directory/lib/Old.php" />
    <install as="Horde/Pear/fixture/horde/framework/directory/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/directory/lib/Stays.php" />
+   <install as="Horde/Pear/fixture/horde/framework/directory/package.xml" name="test/Horde/Pear/fixture/horde/framework/directory/package.xml" />
+   <install as="Horde/Pear/fixture/horde/framework/directory/test.php" name="test/Horde/Pear/fixture/horde/framework/directory/test.php" />
    <install as="Horde/Pear/fixture/horde/framework/empty/File.php" name="test/Horde/Pear/fixture/horde/framework/empty/File.php" />
    <install as="Horde/Pear/fixture/horde/framework/empty/package.xml" name="test/Horde/Pear/fixture/horde/framework/empty/package.xml" />
    <install as="Horde/Pear/fixture/horde/framework/notes/package.xml" name="test/Horde/Pear/fixture/horde/framework/notes/package.xml" />
    <install as="Horde/Pear/fixture/horde/framework/one/File.php" name="test/Horde/Pear/fixture/horde/framework/one/File.php" />
    <install as="Horde/Pear/fixture/horde/framework/one/package.xml" name="test/Horde/Pear/fixture/horde/framework/one/package.xml" />
-   <install as="Horde/Pear/fixture/horde/framework/order/package.xml" name="test/Horde/Pear/fixture/horde/framework/order/package.xml" />
    <install as="Horde/Pear/fixture/horde/framework/order/lib/A.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/A.php" />
+   <install as="Horde/Pear/fixture/horde/framework/order/lib/A/a.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/A/a.php" />
+   <install as="Horde/Pear/fixture/horde/framework/order/lib/b/a.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/b/a.php" />
    <install as="Horde/Pear/fixture/horde/framework/order/lib/R.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/R.php" />
    <install as="Horde/Pear/fixture/horde/framework/order/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/Stays.php" />
    <install as="Horde/Pear/fixture/horde/framework/order/lib/Z.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/Z.php" />
-   <install as="Horde/Pear/fixture/horde/framework/order/lib/A/a.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/A/a.php" />
-   <install as="Horde/Pear/fixture/horde/framework/order/lib/b/a.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/b/a.php" />
    <install as="Horde/Pear/fixture/horde/framework/order/lib/z/a.php" name="test/Horde/Pear/fixture/horde/framework/order/lib/z/a.php" />
-   <install as="Horde/Pear/fixture/horde/framework/remove/package.xml" name="test/Horde/Pear/fixture/horde/framework/remove/package.xml" />
-   <install as="Horde/Pear/fixture/horde/framework/remove/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/remove/lib/Stays.php" />
+   <install as="Horde/Pear/fixture/horde/framework/order/package.xml" name="test/Horde/Pear/fixture/horde/framework/order/package.xml" />
    <install as="Horde/Pear/fixture/horde/framework/remove/lib/b/a.php" name="test/Horde/Pear/fixture/horde/framework/remove/lib/b/a.php" />
-   <install as="Horde/Pear/fixture/horde/framework/simple/package.xml" name="test/Horde/Pear/fixture/horde/framework/simple/package.xml" />
-   <install as="Horde/Pear/fixture/horde/framework/simple/lib/Old.php" name="test/Horde/Pear/fixture/horde/framework/simple/lib/Old.php" />
-   <install as="Horde/Pear/fixture/horde/framework/simple/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/simple/lib/Stays.php" />
-   <install as="Horde/Pear/fixture/horde/framework/simple-empty/package.xml" name="test/Horde/Pear/fixture/horde/framework/simple-empty/package.xml" />
+   <install as="Horde/Pear/fixture/horde/framework/remove/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/remove/lib/Stays.php" />
+   <install as="Horde/Pear/fixture/horde/framework/remove/package.xml" name="test/Horde/Pear/fixture/horde/framework/remove/package.xml" />
    <install as="Horde/Pear/fixture/horde/framework/simple-empty/lib/Old.php" name="test/Horde/Pear/fixture/horde/framework/simple-empty/lib/Old.php" />
    <install as="Horde/Pear/fixture/horde/framework/simple-empty/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/simple-empty/lib/Stays.php" />
-   <install as="Horde/Pear/fixture/horde/framework/tree/package.xml" name="test/Horde/Pear/fixture/horde/framework/tree/package.xml" />
+   <install as="Horde/Pear/fixture/horde/framework/simple-empty/package.xml" name="test/Horde/Pear/fixture/horde/framework/simple-empty/package.xml" />
+   <install as="Horde/Pear/fixture/horde/framework/simple/lib/Old.php" name="test/Horde/Pear/fixture/horde/framework/simple/lib/Old.php" />
+   <install as="Horde/Pear/fixture/horde/framework/simple/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/simple/lib/Stays.php" />
+   <install as="Horde/Pear/fixture/horde/framework/simple/package.xml" name="test/Horde/Pear/fixture/horde/framework/simple/package.xml" />
+   <install as="Horde/Pear/fixture/horde/framework/tree/lib/Horde/a.php" name="test/Horde/Pear/fixture/horde/framework/tree/lib/Horde/a.php" />
    <install as="Horde/Pear/fixture/horde/framework/tree/lib/Old.php" name="test/Horde/Pear/fixture/horde/framework/tree/lib/Old.php" />
    <install as="Horde/Pear/fixture/horde/framework/tree/lib/Stays.php" name="test/Horde/Pear/fixture/horde/framework/tree/lib/Stays.php" />
-   <install as="Horde/Pear/fixture/horde/framework/tree/lib/Horde/a.php" name="test/Horde/Pear/fixture/horde/framework/tree/lib/Horde/a.php" />
+   <install as="Horde/Pear/fixture/horde/framework/tree/package.xml" name="test/Horde/Pear/fixture/horde/framework/tree/package.xml" />
    <install as="Horde/Pear/fixture/horde/framework/tree/test/b.php" name="test/Horde/Pear/fixture/horde/framework/tree/test/b.php" />
    <install as="Horde/Pear/fixture/horde/framework/tree/test/Horde/a.php" name="test/Horde/Pear/fixture/horde/framework/tree/test/Horde/a.php" />
    <install as="Horde/Pear/fixture/horde/horde/package.xml" name="test/Horde/Pear/fixture/horde/horde/package.xml" />
+   <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/dynamic/screen.css" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/dynamic/screen.css" />
+   <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/graphics/logo.png" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/graphics/logo.png" />
    <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/info.php" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/info.php" />
    <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/package.xml" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/package.xml" />
    <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/screen.css" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/screen.css" />
-   <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/dynamic/screen.css" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/dynamic/screen.css" />
-   <install as="Horde/Pear/fixture/horde/horde/themes/mytheme/graphics/logo.png" name="test/Horde/Pear/fixture/horde/horde/themes/mytheme/graphics/logo.png" />
    <install as="Horde/Pear/fixture/horde/imp/package.xml" name="test/Horde/Pear/fixture/horde/imp/package.xml" />
-   <install as="Horde/Pear/fixture/horde/imp/themes/mytheme/screen.css" name="test/Horde/Pear/fixture/horde/imp/themes/mytheme/screen.css" />
    <install as="Horde/Pear/fixture/horde/imp/themes/mytheme/dynamic/screen.css" name="test/Horde/Pear/fixture/horde/imp/themes/mytheme/dynamic/screen.css" />
    <install as="Horde/Pear/fixture/horde/imp/themes/mytheme/graphics/imp.png" name="test/Horde/Pear/fixture/horde/imp/themes/mytheme/graphics/imp.png" />
+   <install as="Horde/Pear/fixture/horde/imp/themes/mytheme/screen.css" name="test/Horde/Pear/fixture/horde/imp/themes/mytheme/screen.css" />
+   <install as="Horde/Pear/fixture/package.xml.v1.0" name="test/Horde/Pear/fixture/package.xml.v1.0" />
    <install as="Horde/Pear/fixture/rest/dependencies" name="test/Horde/Pear/fixture/rest/dependencies" />
    <install as="Horde/Pear/fixture/rest/package.xml" name="test/Horde/Pear/fixture/rest/package.xml" />
    <install as="Horde/Pear/fixture/rest/releases.xml" name="test/Horde/Pear/fixture/rest/releases.xml" />
+   <install as="Horde/Pear/phpunit.xml" name="test/Horde/Pear/phpunit.xml" />
    <install as="Horde/Pear/Server/conf.php.dist" name="test/Horde/Pear/Server/conf.php.dist" />
    <install as="Horde/Pear/Server/RegistryTest.php" name="test/Horde/Pear/Server/RegistryTest.php" />
    <install as="Horde/Pear/Server/RemoteTest.php" name="test/Horde/Pear/Server/RemoteTest.php" />
    <install as="Horde/Pear/Server/RestTest.php" name="test/Horde/Pear/Server/RestTest.php" />
    <install as="Horde/Pear/Stub/Request.php" name="test/Horde/Pear/Stub/Request.php" />
-   <install as="Horde/Pear/Unit/RegistryTest.php" name="test/Horde/Pear/Unit/RegistryTest.php" />
-   <install as="Horde/Pear/Unit/RemoteTest.php" name="test/Horde/Pear/Unit/RemoteTest.php" />
-   <install as="Horde/Pear/Unit/RestTest.php" name="test/Horde/Pear/Unit/RestTest.php" />
-   <install as="Horde/Pear/Unit/Package/DependenciesTest.php" name="test/Horde/Pear/Unit/Package/DependenciesTest.php" />
-   <install as="Horde/Pear/Unit/Package/XmlTest.php" name="test/Horde/Pear/Unit/Package/XmlTest.php" />
-   <install as="Horde/Pear/Unit/Package/Contents/ListTest.php" name="test/Horde/Pear/Unit/Package/Contents/ListTest.php" />
+   <install as="Horde/Pear/TestCase.php" name="test/Horde/Pear/TestCase.php" />
    <install as="Horde/Pear/Unit/Package/Contents/Ignore/CompositeTest.php" name="test/Horde/Pear/Unit/Package/Contents/Ignore/CompositeTest.php" />
    <install as="Horde/Pear/Unit/Package/Contents/Ignore/DotTest.php" name="test/Horde/Pear/Unit/Package/Contents/Ignore/DotTest.php" />
    <install as="Horde/Pear/Unit/Package/Contents/Ignore/GitTest.php" name="test/Horde/Pear/Unit/Package/Contents/Ignore/GitTest.php" />
@@ -476,15 +470,21 @@
    <install as="Horde/Pear/Unit/Package/Contents/InstallAs/HordeApplicationTest.php" name="test/Horde/Pear/Unit/Package/Contents/InstallAs/HordeApplicationTest.php" />
    <install as="Horde/Pear/Unit/Package/Contents/InstallAs/HordeTest.php" name="test/Horde/Pear/Unit/Package/Contents/InstallAs/HordeTest.php" />
    <install as="Horde/Pear/Unit/Package/Contents/InstallAs/HordeThemeTest.php" name="test/Horde/Pear/Unit/Package/Contents/InstallAs/HordeThemeTest.php" />
+   <install as="Horde/Pear/Unit/Package/Contents/ListTest.php" name="test/Horde/Pear/Unit/Package/Contents/ListTest.php" />
+   <install as="Horde/Pear/Unit/Package/DependenciesTest.php" name="test/Horde/Pear/Unit/Package/DependenciesTest.php" />
    <install as="Horde/Pear/Unit/Package/Type/HordeTest.php" name="test/Horde/Pear/Unit/Package/Type/HordeTest.php" />
    <install as="Horde/Pear/Unit/Package/Type/HordeThemeTest.php" name="test/Horde/Pear/Unit/Package/Type/HordeThemeTest.php" />
    <install as="Horde/Pear/Unit/Package/Xml/DirectoryTest.php" name="test/Horde/Pear/Unit/Package/Xml/DirectoryTest.php" />
+   <install as="Horde/Pear/Unit/Package/XmlTest.php" name="test/Horde/Pear/Unit/Package/XmlTest.php" />
+   <install as="Horde/Pear/Unit/RegistryTest.php" name="test/Horde/Pear/Unit/RegistryTest.php" />
+   <install as="Horde/Pear/Unit/RemoteTest.php" name="test/Horde/Pear/Unit/RemoteTest.php" />
    <install as="Horde/Pear/Unit/Rest/AccessTest.php" name="test/Horde/Pear/Unit/Rest/AccessTest.php" />
    <install as="Horde/Pear/Unit/Rest/DependenciesTest.php" name="test/Horde/Pear/Unit/Rest/DependenciesTest.php" />
    <install as="Horde/Pear/Unit/Rest/PackageListTest.php" name="test/Horde/Pear/Unit/Rest/PackageListTest.php" />
    <install as="Horde/Pear/Unit/Rest/PackageTest.php" name="test/Horde/Pear/Unit/Rest/PackageTest.php" />
    <install as="Horde/Pear/Unit/Rest/ReleasesTest.php" name="test/Horde/Pear/Unit/Rest/ReleasesTest.php" />
    <install as="Horde/Pear/Unit/Rest/ReleaseTest.php" name="test/Horde/Pear/Unit/Rest/ReleaseTest.php" />
+   <install as="Horde/Pear/Unit/RestTest.php" name="test/Horde/Pear/Unit/RestTest.php" />
   </filelist>
  </phprelease>
  <changelog>
@@ -664,7 +664,7 @@
    <stability>
     <release>alpha</release>
     <api>alpha</api></stability>
-   <date>2017-10-16</date>
+   <date>2017-10-17</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * [jan] Set replacement tasks for binaries and translation handlers.
