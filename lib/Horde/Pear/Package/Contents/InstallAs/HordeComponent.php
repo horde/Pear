@@ -39,6 +39,7 @@ implements Horde_Pear_Package_Contents_InstallAs
 
         switch ($basedir) {
         case 'COPYING':
+        case 'LICENSE':
         case 'README':
         case 'README.md':
         case 'README.rst':

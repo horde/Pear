@@ -39,6 +39,7 @@ implements Horde_Pear_Package_Contents_Role
         case 'bin':
             return 'script';
         case 'COPYING':
+        case 'LICENSE':
         case 'README':
         case 'README.md':
         case 'README.rst':
