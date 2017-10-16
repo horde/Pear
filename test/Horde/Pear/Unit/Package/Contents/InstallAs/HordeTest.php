@@ -45,7 +45,7 @@ extends Horde_Pear_TestCase
     {
         $this->assertEquals(
             'doc.txt',
-            $this->_getFixture()->getInstallAs()->getInstallAs('/docs/doc.txt', 'horde')
+            $this->_getFixture()->getInstallAs()->getInstallAs('/doc/doc.txt', 'horde')
         );
     }
 

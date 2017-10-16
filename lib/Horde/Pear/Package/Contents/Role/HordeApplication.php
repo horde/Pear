@@ -38,6 +38,7 @@ implements Horde_Pear_Package_Contents_Role
         switch ($basedir) {
         case 'bin':
             return 'script';
+        case 'doc':
         case 'docs':
         case 'COPYING':
         case 'LICENSE':

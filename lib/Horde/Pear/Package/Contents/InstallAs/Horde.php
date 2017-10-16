@@ -38,6 +38,7 @@ implements Horde_Pear_Package_Contents_InstallAs
         $basedir = array_shift($elements);
         switch ($basedir) {
         case 'bin':
+        case 'doc':
         case 'docs':
         case 'test':
             return join('/', $elements);
