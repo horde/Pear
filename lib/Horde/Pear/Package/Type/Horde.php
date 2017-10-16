@@ -129,6 +129,7 @@ implements Horde_Pear_Package_Type
     public function getInstallAs()
     {
         switch ($this->getName()) {
+        case 'base':
         case 'horde':
         case 'groupware':
         case 'webmail':
