@@ -62,6 +62,8 @@ implements Horde_Pear_Package_Contents_InstallAs
         case 'COPYING':
         case 'LICENSE':
         case 'README':
+        case 'README.md':
+        case 'README.rst':
             return substr($file, 1);
         default:
             return $this->_type->getName() . $file;

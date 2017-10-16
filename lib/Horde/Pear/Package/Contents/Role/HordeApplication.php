@@ -43,6 +43,8 @@ implements Horde_Pear_Package_Contents_Role
         case 'COPYING':
         case 'LICENSE':
         case 'README':
+        case 'README.md':
+        case 'README.rst':
             return 'doc';
         case 'test':
             return 'test';

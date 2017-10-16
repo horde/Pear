@@ -39,6 +39,9 @@ implements Horde_Pear_Package_Contents_InstallAs
 
         switch ($basedir) {
         case 'COPYING':
+        case 'README':
+        case 'README.md':
+        case 'README.rst':
         case 'examples':
         case 'js':
         case 'locale':

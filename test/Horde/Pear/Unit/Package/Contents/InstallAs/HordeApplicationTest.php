@@ -68,8 +68,8 @@ extends Horde_Pear_TestCase
     public function testInstallAsForReadme()
     {
         $this->assertEquals(
-            'README',
-            $this->_getFixture()->getInstallAs()->getInstallAs('/README', 'imp')
+            'README.rst',
+            $this->_getFixture()->getInstallAs()->getInstallAs('/README.rst', 'imp')
         );
     }
 
