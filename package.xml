@@ -10,7 +10,7 @@
   <email>p@rdus.de</email>
   <active>yes</active>
  </lead>
- <date>2017-05-03</date>
+ <date>2017-10-16</date>
  <version>
   <release>1.0.0alpha13</release>
   <api>1.0.0</api>
@@ -33,7 +33,6 @@
       </dir> <!-- /doc/Horde/Pear/examples -->
       <file name="COPYING" role="doc" />
       <file name="DOCS_ORIGIN" role="doc" />
-      <file name="README" role="doc" />
       <file name="REMOTE_PEAR_SERVER" role="doc" />
       <file name="TODO" role="doc" />
      </dir> <!-- /doc/Horde/Pear -->
@@ -292,6 +291,7 @@
      </dir> <!-- /test/Horde/Pear -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
+   <file name="README.rst" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -352,9 +352,9 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="README.rst" name="README.rst" />
    <install as="COPYING" name="doc/Horde/Pear/COPYING" />
    <install as="DOCS_ORIGIN" name="doc/Horde/Pear/DOCS_ORIGIN" />
-   <install as="README" name="doc/Horde/Pear/README" />
    <install as="REMOTE_PEAR_SERVER" name="doc/Horde/Pear/REMOTE_PEAR_SERVER" />
    <install as="TODO" name="doc/Horde/Pear/TODO" />
    <install as="examples/remote.php" name="doc/Horde/Pear/examples/remote.php" />
@@ -485,7 +485,7 @@
    <install as="Horde/Pear/Unit/Rest/PackageTest.php" name="test/Horde/Pear/Unit/Rest/PackageTest.php" />
    <install as="Horde/Pear/Unit/Rest/ReleasesTest.php" name="test/Horde/Pear/Unit/Rest/ReleasesTest.php" />
    <install as="Horde/Pear/Unit/Rest/ReleaseTest.php" name="test/Horde/Pear/Unit/Rest/ReleaseTest.php" />
-   </filelist>
+  </filelist>
  </phprelease>
  <changelog>
   <release>
@@ -664,7 +664,7 @@
    <stability>
     <release>alpha</release>
     <api>alpha</api></stability>
-   <date>2017-05-03</date>
+   <date>2017-10-16</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
