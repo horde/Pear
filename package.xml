@@ -31,9 +31,9 @@
       <dir name="examples">
        <file name="remote.php" role="doc" />
       </dir> <!-- /doc/Horde/Pear/examples -->
-      <file name="DOCS_ORIGIN" role="doc" />
-      <file name="REMOTE_PEAR_SERVER" role="doc" />
-      <file name="TODO" role="doc" />
+      <file name="DOCS_ORIGIN.rst" role="doc" />
+      <file name="REMOTE_PEAR_SERVER.rst" role="doc" />
+      <file name="TODO.rst" role="doc" />
      </dir> <!-- /doc/Horde/Pear -->
     </dir> <!-- /doc/Horde -->
    </dir> <!-- /doc -->
@@ -352,10 +352,10 @@
  </dependencies>
  <phprelease>
   <filelist>
-   <install as="DOCS_ORIGIN" name="doc/Horde/Pear/DOCS_ORIGIN" />
+   <install as="DOCS_ORIGIN.rst" name="doc/Horde/Pear/DOCS_ORIGIN.rst" />
    <install as="examples/remote.php" name="doc/Horde/Pear/examples/remote.php" />
-   <install as="REMOTE_PEAR_SERVER" name="doc/Horde/Pear/REMOTE_PEAR_SERVER" />
-   <install as="TODO" name="doc/Horde/Pear/TODO" />
+   <install as="REMOTE_PEAR_SERVER.rst" name="doc/Horde/Pear/REMOTE_PEAR_SERVER.rst" />
+   <install as="TODO.rst" name="doc/Horde/Pear/TODO.rst" />
    <install as="Horde/Pear/Exception.php" name="lib/Horde/Pear/Exception.php" />
    <install as="Horde/Pear/Package/Contents.php" name="lib/Horde/Pear/Package/Contents.php" />
    <install as="Horde/Pear/Package/Contents/Ignore.php" name="lib/Horde/Pear/Package/Contents/Ignore.php" />
