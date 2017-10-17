@@ -152,37 +152,12 @@ class Horde_Pear_Package_Xml_Contents
     {
         $keys = array_keys($this->_install_list);
         $keys[] = $new;
-        usort($keys, array($this, '_fileOrder'));
+        sort($keys, SORT_NATURAL | SORT_FLAG_CASE);
         $pos = array_search($new, $keys);
         if ($pos < (count($keys) - 1)) {
             return $this->_install_list[$keys[$pos + 1]];
         } else {
             return null;
-        }
-    }
-
-    /**
-     * Sort order for files in the installation list.
-     *
-     * @param string $a First path.
-     * @param string $b Second path.
-     *
-     * @return int Sort comparison result.
-     */
-    private function _fileOrder($a, $b)
-    {
-        $ea = explode('/', $a);
-        $eb = explode('/', $b);
-        while (true) {
-            $pa = array_shift($ea);
-            $pb = array_shift($eb);
-            if ($pa != $pb) {
-                if ((count($ea) == 0 || count($eb) == 0)
-                    && count($ea) != count($eb)) {
-                    return count($ea) < count($eb) ? -1 : 1;
-                }
-                return strnatcasecmp($pa, $pb);
-            }
         }
     }
 
