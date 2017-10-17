@@ -52,4 +52,38 @@ implements Horde_Pear_Package_Contents_Role
             return 'horde';
         }
     }
+
+    /**
+     * Tell which replacement tasks are required for the specified file.
+     *
+     * @param string $file The file path inside the component.
+     * @param string $root The filesystem root of the component.
+     *
+     * @return array A list of <tasks:replace> attribute hashes.
+     */
+    public function getReplace($file, $root)
+    {
+        $elements = explode('/', substr($file, 1));
+        $basedir = array_shift($elements);
+        switch ($basedir) {
+        case 'bin':
+            if (strpos(file_get_contents($root . '/' . $file), '#!/usr/bin/env php') === 0) {
+                return array(array(
+                    'from' => '/usr/bin/env php',
+                    'to' => 'php_bin',
+                    'type' => 'pear-config'
+                ));
+            }
+            break;
+        }
+        $file = array_pop($elements);
+        if ($file == 'Translation.php') {
+            return array(array(
+                'from' => '@data_dir@',
+                'to' => 'data_dir',
+                'type' => 'pear-config'
+            ));
+        }
+        return array();
+    }
 }

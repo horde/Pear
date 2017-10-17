@@ -86,11 +86,12 @@ implements Horde_Pear_Package_Contents
         );
         $elements = array();
         foreach ($list as $element) {
-            if ($this->_include->isIncluded($element)
-                && !$this->_ignore->isIgnored($element)) {
+            if ($this->_include->isIncluded($element) &&
+                !$this->_ignore->isIgnored($element)) {
                 $file = substr($element->getPathname(), strlen($this->_root));
                 $elements[$file] = array(
                     'role' => $this->_role->getRole($file),
+                    'replace' => $this->_role->getReplace($file, $this->_root),
                     'as' => $this->_install_as->getInstallAs($file, 'Horde_' . basename($this->_root))
                 );
             }

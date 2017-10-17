@@ -31,4 +31,14 @@ interface Horde_Pear_Package_Contents_Role
      * @return string The role of the file.
      */
     public function getRole($file);
+
+    /**
+     * Tell which replacement tasks are required for the specified file.
+     *
+     * @param string $file The file path inside the component.
+     * @param string $root The filesystem root of the component.
+     *
+     * @return array A list of <tasks:replace> attribute hashes.
+     */
+    public function getReplace($file, $root);
 }

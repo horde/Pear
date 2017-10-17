@@ -72,7 +72,7 @@ class Horde_Pear_Package_Xml_Directory
     /**
      * Return the directory node.
      *
-     * @return DOMNode The directory node.
+     * @return Horde_Pear_Package_Xml_Element_Directory The directory node.
      */
     public function getDirectory()
     {
@@ -156,8 +156,6 @@ class Horde_Pear_Package_Xml_Directory
      *
      * @param string $file   The file name.
      * @param array  $params Additional file parameters.
-     *
-     * @return NULL
      */
     public function addFile($file, $params)
     {
@@ -170,15 +168,14 @@ class Horde_Pear_Package_Xml_Directory
      *
      * @param string $file   The file name.
      * @param array  $params Additional file parameters.
-     *
-     * @return NULL
      */
     private function _addFile($file, $params)
     {
         $this->_files[basename($file)] = $this->_element->insertFile(
             basename($file),
             $params['role'],
-            $this->_getFileInsertionPoint(basename($file))
+            $this->_getFileInsertionPoint(basename($file)),
+            isset($params['replace']) ? $params['replace'] : null
         );
     }
 
@@ -186,8 +183,6 @@ class Horde_Pear_Package_Xml_Directory
      * Delete a file from the list.
      *
      * @param string $file The file name.
-     *
-     * @return NULL
      */
     public function deleteFile($file)
     {
@@ -198,8 +193,6 @@ class Horde_Pear_Package_Xml_Directory
      * Delete a file from the list.
      *
      * @param string $file The file name.
-     *
-     * @return NULL
      */
     private function _deleteFile($file)
     {
@@ -212,8 +205,6 @@ class Horde_Pear_Package_Xml_Directory
      * Delete a subdirectory from the list.
      *
      * @param string $dir The directory name.
-     *
-     * @return NULL
      */
     public function deleteSubdirectory($dir)
     {
@@ -223,8 +214,6 @@ class Horde_Pear_Package_Xml_Directory
 
     /**
      * Prune this directory if it is empty.
-     *
-     * @return NULL
      */
     private function _prune()
     {
@@ -241,7 +230,7 @@ class Horde_Pear_Package_Xml_Directory
      *
      * @param array $tree The path elements that are required.
      *
-     * @return DOMNode The parent directory for the file.
+     * @return self  The parent directory for the file.
      */
     public function getParent($tree)
     {

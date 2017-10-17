@@ -58,6 +58,13 @@ class Horde_Pear_Package_Xml_Element_File
     private $_role;
 
     /**
+     * The replacement tasks for this file.
+     *
+     * @var array
+     */
+    private $_replace;
+
+    /**
      * The level in the tree.
      *
      * @var int
@@ -67,17 +74,19 @@ class Horde_Pear_Package_Xml_Element_File
     /**
      * Constructor.
      *
-     * @param string                                   $name   The name of
-     *                                                         the directory.
-     * @param Horde_Pear_Package_Xml_Element_Directory $parent The parent
-     *                                                         directory.
-     * @param string                                   $role   The file role.
+     * @param string                                   $name    The name of
+     *                                                          the directory.
+     * @param Horde_Pear_Package_Xml_Element_Directory $parent  The parent
+     *                                                          directory.
+     * @param string                                   $role    The file role.
+     * @param array                                    $replace Replacement tasks.
      */
-    public function __construct($name, $parent, $role = null)
+    public function __construct($name, $parent, $role = null, $replace = array())
     {
         $this->_name = $name;
         $this->_role = $role;
         $this->_parent = $parent;
+        $this->_replace = $replace;
         $this->_xml = $parent->getDocument();
         $this->_level = $parent->getLevel() + 1;
     }
@@ -138,6 +147,20 @@ class Horde_Pear_Package_Xml_Element_File
                 $point
             )
         );
+
+        if ($this->_replace) {
+            foreach ($this->_replace as $replace) {
+                $replace['namespace'] = Horde_Pear_Package_Xml::XMLTASKSNAMESPACE;
+                $this->_xml->append(
+                    array(
+                        "\n  " . str_repeat(" ", $this->_level),
+                        'tasks:replace' => $replace,
+                        "\n " . str_repeat(" ", $this->_level),
+                    ),
+                    $this->_file
+                );
+            }
+        }
     }
 
     /**

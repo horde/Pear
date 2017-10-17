@@ -25,6 +25,9 @@ class Horde_Pear_Package_Xml
     /** The package.xml namespace */
     const XMLNAMESPACE = 'http://pear.php.net/dtd/package-2.0';
 
+    /** The package.xml tasks namespace */
+    const XMLTASKSNAMESPACE = 'http://pear.php.net/dtd/tasks-1.0';
+
     /**
      * The parsed XML.
      *
@@ -916,7 +919,13 @@ class Horde_Pear_Package_Xml
             if (is_string($element)) {
                 $element = $this->createText($element);
             } else if (is_array($element)) {
-                $node = $element = $this->createNode($key, $element);
+                if (isset($element['namespace'])) {
+                    $ns = $element['namespace'];
+                    unset($element['namespace']);
+                } else {
+                    $ns = self::XMLNAMESPACE;
+                }
+                $node = $element = $this->createNode($key, $element, $ns);
             }
             $parent->appendChild($element);
         }
@@ -933,9 +942,12 @@ class Horde_Pear_Package_Xml
         return $this->_xml->createComment($comment);
     }
 
-    public function createNode($name, $attributes = array())
+    public function createNode($name, $attributes = array(), $ns = null)
     {
-        $node = $this->_xml->createElementNS(self::XMLNAMESPACE, $name);
+        if (!$ns) {
+            $ns = self::XMLNAMESPACE;
+        }
+        $node = $this->_xml->createElementNS($ns, $name);
         foreach ($attributes as $key => $value) {
             $node->setAttribute($key, $value);
         }

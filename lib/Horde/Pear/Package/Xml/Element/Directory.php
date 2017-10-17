@@ -194,15 +194,16 @@ class Horde_Pear_Package_Xml_Element_Directory
      * Insert a new file entry into the XML at the given point with the
      * specified name and file role.
      *
-     * @param string  $name   The name.
-     * @param string  $role   The role.
-     * @param DOMNode $point  Insertion point.
+     * @param string  $name    The name.
+     * @param string  $role    The role.
+     * @param DOMNode $point   Insertion point.
+     * @param array   $replace Replacement tasks.
      *
      * @return Horde_Pear_Package_Xml_Element_File The inserted element.
      */
-    public function insertFile($name, $role, DOMNode $point = null)
+    public function insertFile($name, $role, DOMNode $point = null, $replace = array())
     {
-        $element = $this->_xml->createElementFile($name, $this, $role);
+        $element = $this->_xml->createElementFile($name, $this, $role, $replace);
         $element->insert($point);
         return $element;
     }

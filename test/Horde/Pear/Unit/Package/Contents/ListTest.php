@@ -36,11 +36,13 @@ extends Horde_Pear_TestCase
             array(
                 '/lib/Old.php' => array(
                     'role' => 'php',
-                    'as' => 'Old.php'
+                    'as' => 'Old.php',
+                    'replace' => array()
                 ),
                 '/lib/Stays.php' => array(
                     'role' => 'php',
-                    'as' => 'Stays.php'
+                    'as' => 'Stays.php',
+                    'replace' => array()
                 ),
             ),
             $this->_getList()->getContents()

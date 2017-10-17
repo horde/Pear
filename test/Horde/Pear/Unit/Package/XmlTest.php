@@ -151,11 +151,7 @@ extends Horde_Pear_TestCase
         $xml = $this->_getFixture();
         $xml->addNote('');
         $this->assertEquals(
-            '
-* 
-* Fixed bug #1
-* Initial release
- ',
+            "\n* \n* Fixed bug #1\n* Initial release\n ",
             $xml->findNode('/p:package/p:notes')->textContent
         );
     }
@@ -287,7 +283,7 @@ extends Horde_Pear_TestCase
     {
         $xml = $this->_getSyncedFixture();
         $this->assertEquals(
-            'http://www.horde.org/licenses/lgpl21', 
+            'http://www.horde.org/licenses/lgpl21',
             $xml->findNode('/p:package/p:changelog/p:release')
             ->getElementsByTagNameNS(Horde_Pear_Package_Xml::XMLNAMESPACE, 'license')
             ->item(0)
@@ -407,7 +403,7 @@ extends Horde_Pear_TestCase
     private function _assertNodeExists($xml, $xpath)
     {
         $this->assertInstanceOf(
-            'DOMNode', 
+            'DOMNode',
             $xml->findNode($xpath)
         );
     }
@@ -424,7 +420,7 @@ extends Horde_Pear_TestCase
     private function _assertContentsNotContain($filename, $xml)
     {
         $this->_assertDirectoryNotContains(
-            $xml, 
+            $xml,
             $this->_getSubDirFromRoot($filename, $xml),
             basename($filename)
         );
@@ -509,7 +505,7 @@ extends Horde_Pear_TestCase
     private function _assertNodeContent($xml, $xpath, $content)
     {
         $this->assertEquals(
-            $content, 
+            $content,
             $xml->findNode($xpath)->textContent
         );
     }
