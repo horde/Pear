@@ -51,6 +51,7 @@ implements Horde_Pear_Package_Contents_Role
         case 'migration':
             return 'data';
         case 'js':
+        case 'themes':
             return 'horde';
         case 'test':
             return 'test';

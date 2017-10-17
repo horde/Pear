@@ -46,6 +46,7 @@ implements Horde_Pear_Package_Contents_InstallAs
         case 'examples':
         case 'js':
         case 'locale':
+        case 'themes':
             return substr($file, 1);
 
         case 'bundle':
