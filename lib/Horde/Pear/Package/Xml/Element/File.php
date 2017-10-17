@@ -155,11 +155,14 @@ class Horde_Pear_Package_Xml_Element_File
                     array(
                         "\n  " . str_repeat(" ", $this->_level),
                         'tasks:replace' => $replace,
-                        "\n " . str_repeat(" ", $this->_level),
                     ),
                     $this->_file
                 );
             }
+            $this->_xml->append(
+                array("\n " . str_repeat(" ", $this->_level)),
+                $this->_file
+            );
         }
     }
 
