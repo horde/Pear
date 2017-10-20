@@ -10,7 +10,7 @@
   <email>p@rdus.de</email>
   <active>yes</active>
  </lead>
- <date>2017-10-17</date>
+ <date>2017-10-20</date>
  <version>
   <release>1.0.0alpha13</release>
   <api>1.0.0</api>
@@ -285,7 +285,6 @@
       <file name="AllTests.php" role="test" />
       <file name="Autoload.php" role="test" />
       <file name="bootstrap.php" role="test" />
-      <file name="phpunit.xml" role="test" />
       <file name="TestCase.php" role="test" />
      </dir> <!-- /test/Horde/Pear -->
     </dir> <!-- /test/Horde -->
@@ -454,7 +453,6 @@
    <install as="Horde/Pear/fixture/rest/dependencies" name="test/Horde/Pear/fixture/rest/dependencies" />
    <install as="Horde/Pear/fixture/rest/package.xml" name="test/Horde/Pear/fixture/rest/package.xml" />
    <install as="Horde/Pear/fixture/rest/releases.xml" name="test/Horde/Pear/fixture/rest/releases.xml" />
-   <install as="Horde/Pear/phpunit.xml" name="test/Horde/Pear/phpunit.xml" />
    <install as="Horde/Pear/Server/conf.php.dist" name="test/Horde/Pear/Server/conf.php.dist" />
    <install as="Horde/Pear/Server/RegistryTest.php" name="test/Horde/Pear/Server/RegistryTest.php" />
    <install as="Horde/Pear/Server/RemoteTest.php" name="test/Horde/Pear/Server/RemoteTest.php" />
@@ -664,7 +662,7 @@
    <stability>
     <release>alpha</release>
     <api>alpha</api></stability>
-   <date>2017-10-17</date>
+   <date>2017-10-20</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * [jan] Set replacement tasks for binaries and translation handlers.
