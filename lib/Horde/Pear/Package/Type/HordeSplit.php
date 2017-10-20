@@ -78,6 +78,7 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                         '/bin/.htaccess',
                         '/composer.*',
                         '/package.xml',
+                        '/phpunit.xml.dist',
                         '/.git/*',
                         '/.gitattributes',
                         '/.gitignore',
