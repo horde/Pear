@@ -441,8 +441,6 @@ class Horde_Pear_Package_Xml
      * Add a new note to the package.xml
      *
      * @param string $note The note text.
-     *
-     * @return NULL
      */
     public function addNote($note)
     {
@@ -459,6 +457,28 @@ class Horde_Pear_Package_Xml
             $this->replaceTextNodeRelativeTo(
                 './p:notes', $release, $new_notes . '  '
             );
+        }
+    }
+
+    /**
+     * Sets notes in the package.xml
+     *
+     * @param array[] $note  Lists of note texts with versions as keys.
+     */
+    public function setNotes(array $notes)
+    {
+        foreach ($notes as $version => $info) {
+            $new_notes = "\n* "
+                . implode("\n* ", explode("\n", trim($info['notes'])))
+                . "\n ";
+            if ($version == $this->getVersion()) {
+                $this->replaceTextNode('/p:package/p:notes', $new_notes);
+            }
+            if ($node = $this->_fetchRelease($version)) {
+                $this->replaceTextNodeRelativeTo(
+                    './p:notes', $node, $new_notes . '  '
+                );
+            }
         }
     }
 
@@ -668,9 +688,21 @@ class Horde_Pear_Package_Xml
      *
      * @return DOMElement|NULL The release node or empty if no such node was found.
      */
-    private function _fetchCurrentRelease()
+    protected function _fetchCurrentRelease()
     {
         $version = $this->getNodeText('/p:package/p:version/p:release');
+        return $this->_fetchRelease($version);
+    }
+
+    /**
+     * Fetch the node holding release information in the changelog.
+     *
+     * @param string $version  Version to fetch the release information from.
+     *
+     * @return DOMElement|NULL The release node or empty if no such node was found.
+     */
+    protected function _fetchRelease($version)
+    {
         foreach ($this->findNodes('/p:package/p:changelog/p:release') as $release) {
             if ($this->getNodeTextRelativeTo('./p:version/p:release', $release) == $version) {
                 return $release;
