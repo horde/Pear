@@ -467,16 +467,25 @@ class Horde_Pear_Package_Xml
      */
     public function setNotes(array $notes)
     {
+        $thisVersion = $this->getVersion();
         foreach ($notes as $version => $info) {
             $new_notes = "\n* "
                 . implode("\n* ", explode("\n", trim($info['notes'])))
                 . "\n ";
-            if ($version == $this->getVersion()) {
+            if ($version == $thisVersion) {
                 $this->replaceTextNode('/p:package/p:notes', $new_notes);
             }
             if ($node = $this->_fetchRelease($version)) {
                 $this->replaceTextNodeRelativeTo(
                     './p:notes', $node, $new_notes . '  '
+                );
+            } elseif (isset($info['date'])) {
+                $this->addVersion(
+                    $version, $info['api'],
+                    $info['state']['release'], $info['state']['api'],
+                    $info['date'],
+                    $info['license']['identifier'], $info['license']['uri'],
+                    $new_notes
                 );
             }
         }
@@ -556,8 +565,6 @@ class Horde_Pear_Package_Xml
      * @param string $stability_api     The API stability for the next release.
      * @param string $stability_release The stability for the next release.
      * @param boolean $keepTime         Keep the <time> element?
-     *
-     * @return NULL
      */
     public function addNextVersion($version, $initial_note,
                                    $stability_api = null,
@@ -587,19 +594,40 @@ class Horde_Pear_Package_Xml
             $this->_xml->documentElement->removeChild($node);
         }
 
+        $this->addVersion(
+            $version, $api,
+            $stability_release, $stability_api,
+            date('Y-m-d'),
+            $this->getLicense(), $this->getLicenseLocation(),
+            $notes
+        );
+    }
+
+    /**
+     * Adds a new version to the package.xml
+     *
+     * @param string $version           The new version number.
+     * @param string $api               The new api number.
+     * @param string $stability_release The stability for the next release.
+     * @param string $stability_api     The API stability for the next release.
+     * @param string $date              The release date.
+     * @param string $license           The license identifier.
+     * @param string $licenseLocation   The license URI.
+     * @param string $notes             The text for the release notes.
+     */
+    public function addVersion(
+        $version, $api, $stability_release, $stability_api, $date, $license,
+        $licenseLocation, $notes
+    )
+    {
         $changelog = $this->findNode('/p:package/p:changelog');
         $this->_insertWhiteSpace($changelog, ' ');
 
         $release = $this->_xml->createElementNS(self::XMLNAMESPACE, 'release');
         $this->_appendVersion($release, $version, $api, "\n   ");
         $this->_appendStability($release, $stability_release, $stability_api, "\n   ");
-        $this->_appendChild($release, 'date', date('Y-m-d'), "\n   ");
-        $this->_appendLicense(
-            $release,
-            $this->getLicense(),
-            $this->getLicenseLocation(),
-            "\n   "
-        );
+        $this->_appendChild($release, 'date', $date, "\n   ");
+        $this->_appendLicense($release, $license, $licenseLocation, "\n   ");
         $this->_appendChild($release, 'notes', $notes . '  ', "\n   ");
         $this->_insertWhiteSpace($release, "\n  ");
         $changelog->appendChild($release);
