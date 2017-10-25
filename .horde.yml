@@ -7,3 +7,32 @@ description: >
   it allows updating the package.xml file or accessing a remote PEAR server.
 list: dev
 type: library
+homepage: https://www.horde.org/libraries/Horde_Pear
+authors:
+  -
+    name: Gunnar Wrobel
+    user: wrobel
+    email: p@rdus.de
+    active: true
+    role: lead
+version:
+  release: 1.0.0alpha13
+  api: 1.0.0
+state:
+  release: alpha
+  api: alpha
+license:
+  identifier: LGPL-2.1
+  uri: http://www.horde.org/licenses/lgpl21
+dependencies:
+  required:
+    php: ^5.3 || ^7
+    pear:
+      pear.horde.org/Horde_Exception: ^2
+      pear.horde.org/Horde_Util: ^2
+      pear.horde.org/Horde_Xml_Element: ^2
+      pear.horde.org/Horde_Yaml: ^2
+  optional:
+    pear:
+      pear.horde.org/Horde_Http: ^2
+      pear.horde.org/Horde_Test: ^2.1
