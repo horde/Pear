@@ -77,6 +77,8 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                         'CVS/*',
                         '/bin/.htaccess',
                         '/composer.*',
+                        '/doc/changelog.yml',
+                        '/docs/changelog.yml',
                         '/package.xml',
                         '/phpunit.xml.dist',
                         '/.git/*',
