@@ -21,7 +21,9 @@
  </stability>
  <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
  <notes>
-* 
+* [jan] Add Horde_Pear_Package_Xml#addVersion().
+* [jan] Add Horde_Pear_Package_Xml#setNotes().
+* [jan] Set replacement tasks for binaries and translation handlers.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -667,7 +669,9 @@
    <date>2017-05-03</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
-* 
+* [jan] Add Horde_Pear_Package_Xml#addVersion().
+* [jan] Add Horde_Pear_Package_Xml#setNotes().
+* [jan] Set replacement tasks for binaries and translation handlers.
    </notes>
   </release>
  </changelog>
