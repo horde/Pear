@@ -1,5 +1,5 @@
 {
-    "name": "horde/horde-pear",
+    "name": "horde/pear",
     "description": "A library for handling a subset of the PEAR formats and specifications",
     "type": "library",
     "homepage": "https://pear.horde.org",
@@ -11,7 +11,7 @@
             "role": "lead"
         }
     ],
-    "version": "1.0.0alpha12",
+    "version": "1.0.0alpha13",
     "time": "2017-05-03",
     "repositories": [
         {
@@ -23,7 +23,8 @@
         "php": "^5.3 || ^7",
         "pear-pear.horde.org/Horde_Exception": "^2",
         "pear-pear.horde.org/Horde_Util": "^2",
-        "pear-pear.horde.org/Horde_Xml_Element": "^2"
+        "pear-pear.horde.org/Horde_Xml_Element": "^2",
+        "pear-pear.horde.org/Horde_Yaml": "^2"
     },
     "suggest": {
         "pear-pear.horde.org/Horde_Http": "^2",
