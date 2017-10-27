@@ -1,0 +1,157 @@
+---
+1.0.0alpha13:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2017-10-20
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Add Horde_Pear_Package_Xml#addVersion().
+    [jan] Add Horde_Pear_Package_Xml#setNotes().
+    [jan] Set replacement tasks for binaries and translation handlers.
+1.0.0alpha12:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2017-05-03
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Add a HordeTheme package type to generate content lists for single themes.
+1.0.0alpha11:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2016-07-12
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Add Horde_Pear_Remote#getReleases().
+    [jan] Add Horde_Pear_Package_Xml#getVersions().
+1.0.0alpha10:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2016-03-08
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Mark PHP 7 as supported.
+1.0.0alpha9:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2015-04-28
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Fix issues with certain locales like Turkish.
+1.0.0alpha8:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2015-04-13
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [mms] Fix generating the install path for composer packages installed within a Horde component.
+    [mms] Ignore .git directories in composer bundle directories when creating package.xml file.
+1.0.0alpha7:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2015-01-09
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Improve PSR-2 compatibility.
+    [mms] Report XML parsing errors (math.parent@gmail.com, Request #12164).
+1.0.0alpha6:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2013-11-19
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [mms] Report XML parsing errors (math.parent@gmail.com, Request #12164).
+1.0.0alpha5:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2013-10-15
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Remove time elements by default.
+    [jan] Use GMT when updating date and time elements.
+1.0.0alpha4:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2013-03-05
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Ignore symbolic links when building content lists.
+1.0.0alpha3:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2012-07-06
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    First alpha release for Horde 5.
+    [jan] Add Horde_Pear_Package_Xml#setState().
+1.0.0alpha2:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2012-04-10
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    [jan] Fix tests to work with PHPUnit 3.6.
+    [gwr] Fix retrieving the package.xml from the server.
+    [gwr] Basic support for reading PEAR package.xml v1 files.
+1.0.0alpha1:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2011-10-21
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    Initial Horde 4 package.
+    [gwr] Added support for fetching package dependencies from the remote server.
+    [jan] Update changelog when updating content (Bug #9935).
+    [gwr] Imported the .gitignore handling for content lists from the components tool.
+    [gwr] Consume empty notes.
