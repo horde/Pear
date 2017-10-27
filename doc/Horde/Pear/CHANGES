@@ -1,0 +1,106 @@
+-----------------
+v1.0.0alpha13-git
+-----------------
+
+[jan] Add Horde_Pear_Package_Xml#addVersion().
+[jan] Add Horde_Pear_Package_Xml#setNotes().
+[jan] Set replacement tasks for binaries and translation handlers.
+
+
+-------------
+v1.0.0alpha12
+-------------
+
+[jan] Add a HordeTheme package type to generate content lists for single
+      themes.
+
+
+-------------
+v1.0.0alpha11
+-------------
+
+[jan] Add Horde_Pear_Remote#getReleases().
+[jan] Add Horde_Pear_Package_Xml#getVersions().
+
+
+-------------
+v1.0.0alpha10
+-------------
+
+[jan] Mark PHP 7 as supported.
+
+
+------------
+v1.0.0alpha9
+------------
+
+[jan] Fix issues with certain locales like Turkish.
+
+
+------------
+v1.0.0alpha8
+------------
+
+[mms] Fix generating the install path for composer packages installed within a
+      Horde component.
+[mms] Ignore .git directories in composer bundle directories when creating
+      package.xml file.
+
+
+------------
+v1.0.0alpha7
+------------
+
+[jan] Improve PSR-2 compatibility.
+[mms] Report XML parsing errors (math.parent@gmail.com, Request #12164).
+
+
+------------
+v1.0.0alpha6
+------------
+
+[mms] Report XML parsing errors (math.parent@gmail.com, Request #12164).
+
+
+------------
+v1.0.0alpha5
+------------
+
+[jan] Remove time elements by default.
+[jan] Use GMT when updating date and time elements.
+
+
+------------
+v1.0.0alpha4
+------------
+
+[jan] Ignore symbolic links when building content lists.
+
+
+------------
+v1.0.0alpha3
+------------
+
+First alpha release for Horde 5.
+[jan] Add Horde_Pear_Package_Xml#setState().
+
+
+------------
+v1.0.0alpha2
+------------
+
+[jan] Fix tests to work with PHPUnit 3.6.
+[gwr] Fix retrieving the package.xml from the server.
+[gwr] Basic support for reading PEAR package.xml v1 files.
+
+
+------------
+v1.0.0alpha1
+------------
+
+Initial Horde 4 package.
+[gwr] Added support for fetching package dependencies from the remote server.
+[jan] Update changelog when updating content (Bug #9935).
+[gwr] Imported the .gitignore handling for content lists from the components
+      tool.
+[gwr] Consume empty notes.
