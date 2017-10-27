@@ -469,11 +469,9 @@ class Horde_Pear_Package_Xml
     {
         $thisVersion = $this->getVersion();
         foreach ($notes as $version => $info) {
-            $new_notes = implode("\n* ", explode("\n", trim($info['notes'])));
-            if ($new_notes) {
-                $new_notes = "\n* " . $new_notes;
-            }
-            $new_notes .= "\n ";
+            $new_notes = "\n* "
+                . implode("\n* ", explode("\n", trim($info['notes'])))
+                . "\n ";
             if ($version == $thisVersion) {
                 $this->replaceTextNode('/p:package/p:notes', $new_notes);
             }
