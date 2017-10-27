@@ -73,12 +73,11 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                 new Horde_Pear_Package_Contents_Ignore_Patterns(
                     array(
                         '*~',
+                        'changelog.yml',
                         'conf.php',
                         'CVS/*',
                         '/bin/.htaccess',
                         '/composer.*',
-                        '/doc/changelog.yml',
-                        '/docs/changelog.yml',
                         '/package.xml',
                         '/phpunit.xml.dist',
                         '/.git/*',
