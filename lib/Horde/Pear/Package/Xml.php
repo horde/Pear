@@ -475,6 +475,9 @@ class Horde_Pear_Package_Xml
             if ($version == $thisVersion) {
                 $this->replaceTextNode('/p:package/p:notes', $new_notes);
             }
+            if (version_compare($version, $thisVersion, '>')) {
+                continue;
+            }
             if ($node = $this->_fetchRelease($version)) {
                 $this->replaceTextNodeRelativeTo(
                     './p:notes', $node, $new_notes . '  '
