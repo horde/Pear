@@ -10,7 +10,7 @@
   <email>p@rdus.de</email>
   <active>yes</active>
  </lead>
- <date>2017-05-03</date>
+ <date>2017-10-30</date>
  <version>
   <release>1.0.0alpha13</release>
   <api>1.0.0</api>
@@ -33,6 +33,7 @@
       <dir name="examples">
        <file name="remote.php" role="doc" />
       </dir> <!-- /doc/Horde/Pear/examples -->
+      <file name="CHANGES" role="doc" />
       <file name="COPYING" role="doc" />
       <file name="DOCS_ORIGIN" role="doc" />
       <file name="README" role="doc" />
@@ -354,6 +355,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Pear/CHANGES" />
    <install as="COPYING" name="doc/Horde/Pear/COPYING" />
    <install as="DOCS_ORIGIN" name="doc/Horde/Pear/DOCS_ORIGIN" />
    <install as="README" name="doc/Horde/Pear/README" />
@@ -666,7 +668,7 @@
    <stability>
     <release>alpha</release>
     <api>alpha</api></stability>
-   <date>2017-05-03</date>
+   <date>2017-10-30</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * [jan] Add Horde_Pear_Package_Xml#addVersion().
