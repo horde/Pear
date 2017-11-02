@@ -106,7 +106,9 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
      */
     public function getGitIgnore()
     {
-        return file_get_contents($this->getRepositoryRoot() . '/.gitignore');
+        return file_exists($this->getRepositoryRoot() . '/.gitignore')
+            ? file_get_contents($this->getRepositoryRoot() . '/.gitignore')
+            : '';
     }
 
     /**
