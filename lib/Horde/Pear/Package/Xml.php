@@ -605,6 +605,19 @@ class Horde_Pear_Package_Xml
             $this->_insertWhiteSpace($dependencies, "\n ");
         }
         $package = $this->_appendChild($deps, $type, '', ' ');
+        $constraints = array_merge(
+            array(
+                'name' => null,
+                'channel' => null,
+                'min' => null,
+                'max' => null,
+                'recommended' => null,
+                'exclude' => null,
+                'conflicts' => null
+            ),
+            $constraints
+        );
+        $constraints = array_filter($constraints);
         foreach ($constraints as $constraint => $version) {
             $this->_appendChild($package, $constraint, $version, "\n    ");
         }
