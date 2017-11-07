@@ -469,14 +469,13 @@ class Horde_Pear_Package_Xml
     {
         $thisVersion = $this->getVersion();
         foreach ($notes as $version => $info) {
-            $new_notes = "\n* "
-                . implode("\n* ", explode("\n", trim($info['notes'])))
-                . "\n ";
+            $new_notes = implode("\n* ", explode("\n", trim($info['notes'])));
+            if ($new_notes) {
+                $new_notes = "\n* " . $new_notes;
+            }
+            $new_notes .= "\n ";
             if ($version == $thisVersion) {
                 $this->replaceTextNode('/p:package/p:notes', $new_notes);
-            }
-            if (version_compare($version, $thisVersion, '>')) {
-                continue;
             }
             if ($node = $this->_fetchRelease($version)) {
                 $this->replaceTextNodeRelativeTo(
@@ -558,6 +557,59 @@ class Horde_Pear_Package_Xml
                 './p:api', $release, $api_state
             );
         }
+    }
+
+    /**
+     * Adds a new author to the package.xml
+     *
+     * @param string $name     A name.
+     * @param string $user     A user name.
+     * @param string $email    An email address.
+     * @param boolean $active  Still active?
+     */
+    public function addAuthor($name, $user, $email, $active)
+    {
+        $date = $this->findNode('/p:package/p:date');
+        $lead = $this->_xml->createElementNS(self::XMLNAMESPACE, 'lead');
+        $this->_appendChild($lead, 'name', $name, "\n  ");
+        $this->_appendChild($lead, 'user', $user, "\n  ");
+        $this->_appendChild($lead, 'email', $email, "\n  ");
+        $this->_appendChild($lead, 'active', $active ? 'yes' : 'no', "\n  ");
+        $this->_insertWhitespace($lead, "\n ");
+        $date->parentNode->insertBefore($lead, $date);
+        $date->parentNode->insertBefore(
+            $this->_xml->createTextNode("\n "),
+            $date
+        );
+    }
+
+    /**
+     * Adds a new dependency to the package.xml
+     *
+     * @param string $required   A dependency requirement, either 'required' or
+     *                           'optional'.
+     * @param string $type       A dependency type, either 'package' or
+     *                           'extension'.
+     * @param array $contraints  A list of dependency constraints, like 'name'
+     *                           or 'min'.
+     */
+    public function addDependency($required, $type, $constraints)
+    {
+        $deps = $this->findNode('/p:package/p:dependencies/p:' . $required);
+        if (!$deps) {
+            $deps = $this->_xml->createElementNS(self::XMLNAMESPACE, $required);
+            $dependencies = $this->findNode('/p:package/p:dependencies');
+            $this->_insertWhiteSpace($dependencies, ' ');
+            $this->_insertWhiteSpace($deps, "\n  ");
+            $dependencies->appendChild($deps);
+            $this->_insertWhiteSpace($dependencies, "\n ");
+        }
+        $package = $this->_appendChild($deps, $type, '', ' ');
+        foreach ($constraints as $constraint => $version) {
+            $this->_appendChild($package, $constraint, $version, "\n    ");
+        }
+        $this->_insertWhiteSpace($package, "\n   ");
+        $this->_insertWhiteSpace($deps, "\n  ");
     }
 
     /**
@@ -872,7 +924,7 @@ class Horde_Pear_Package_Xml
     public function replaceTextNode($path, $value)
     {
         if ($node = $this->findNode($path)) {
-            $this->_xml->documentElement->replaceChild(
+            $node->parentNode->replaceChild(
                 $this->_replacementNode($node, $value), $node
             );
         }
@@ -926,7 +978,7 @@ class Horde_Pear_Package_Xml
      * @param string  $value  The text content of the new node.
      * @param string  $ws     Additional white space that should be inserted.
      *
-     * @return NULL
+     * @return DOMNode  The appended child.
      */
     private function _appendChild($parent, $name, $value, $ws = '')
     {
@@ -937,6 +989,7 @@ class Horde_Pear_Package_Xml
         $text = $this->_xml->createTextNode($value);
         $new_node->appendChild($text);
         $parent->appendChild($new_node);
+        return $new_node;
     }
 
     /**
