@@ -620,7 +620,11 @@ class Horde_Pear_Package_Xml
         );
         $constraints = array_filter($constraints);
         foreach ($constraints as $constraint => $version) {
-            $this->_appendChild($package, $constraint, $version, "\n    ");
+            if ($version === true) {
+                $this->_appendChild($package, $constraint, null, "\n    ");
+            } else {
+                $this->_appendChild($package, $constraint, $version, "\n    ");
+            }
         }
         $this->_insertWhiteSpace($package, "\n   ");
         $this->_insertWhiteSpace($deps, "\n  ");
@@ -1000,8 +1004,10 @@ class Horde_Pear_Package_Xml
         $new_node = $this->_xml->createElementNS(
             self::XMLNAMESPACE, $name
         );
-        $text = $this->_xml->createTextNode($value);
-        $new_node->appendChild($text);
+        if (strlen($value)) {
+            $text = $this->_xml->createTextNode($value);
+            $new_node->appendChild($text);
+        }
         $parent->appendChild($new_node);
         return $new_node;
     }
