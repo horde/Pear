@@ -566,11 +566,12 @@ class Horde_Pear_Package_Xml
      * @param string $user     A user name.
      * @param string $email    An email address.
      * @param boolean $active  Still active?
+     * @param string $role     An author role.
      */
-    public function addAuthor($name, $user, $email, $active)
+    public function addAuthor($name, $user, $email, $active, $role)
     {
         $date = $this->findNode('/p:package/p:date');
-        $lead = $this->_xml->createElementNS(self::XMLNAMESPACE, 'lead');
+        $lead = $this->_xml->createElementNS(self::XMLNAMESPACE, $role);
         $this->_appendChild($lead, 'name', $name, "\n  ");
         $this->_appendChild($lead, 'user', $user, "\n  ");
         $this->_appendChild($lead, 'email', $email, "\n  ");
