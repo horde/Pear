@@ -82,7 +82,7 @@ extends Horde_Pear_TestCase
         $response = $this->_getRest()->fetchPackageInformation('Horde_Core');
         rewind($response);
         $this->assertContains(
-            'Horde Core Framework libraries',
+            'Core Horde Framework library',
             stream_get_contents($response)
         );
     }
