@@ -539,6 +539,9 @@ class Horde_Pear_Package_Xml
             $this->_requireCurrentRelease()
         );
         $stability = $this->findNode('/p:package/p:stability');
+        if (!$stability) {
+            throw new Horde_Pear_Exception('No <stability> tag found');
+        }
         if ($rel_state) {
             $this->replaceTextNodeRelativeTo(
                 './p:release', $stability, $rel_state
