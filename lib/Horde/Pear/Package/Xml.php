@@ -722,6 +722,7 @@ class Horde_Pear_Package_Xml
         $node = $this->_xml->createElementNS(self::XMLNAMESPACE, 'version');
         $this->_appendChild($node, 'release', $version, "\n    ");
         $this->_appendChild($node, 'api', $api, "\n    ");
+        $this->_insertWhiteSpace($node, "\n   ");
         $parent->appendChild($node);
     }
 
@@ -741,6 +742,7 @@ class Horde_Pear_Package_Xml
         $node = $this->_xml->createElementNS(self::XMLNAMESPACE, 'stability');
         $this->_appendChild($node, 'release', $release, "\n    ");
         $this->_appendChild($node, 'api', $api, "\n    ");
+        $this->_insertWhiteSpace($node, "\n   ");
         $parent->appendChild($node);
     }
 
