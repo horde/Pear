@@ -468,6 +468,10 @@ class Horde_Pear_Package_Xml
     public function setNotes(array $notes)
     {
         $thisVersion = $this->getVersion();
+        foreach ($this->findNodes('/p:package/p:changelog/p:release') as $release) {
+            $this->removeWhitespace($release->previousSibling);
+            $release->parentNode->removeChild($release);
+        }
         foreach ($notes as $version => $info) {
             $new_notes = "\n* "
                 . implode("\n* ", explode("\n", trim($info['notes'])))
@@ -475,19 +479,13 @@ class Horde_Pear_Package_Xml
             if ($version == $thisVersion) {
                 $this->replaceTextNode('/p:package/p:notes', $new_notes);
             }
-            if ($node = $this->_fetchRelease($version)) {
-                $this->replaceTextNodeRelativeTo(
-                    './p:notes', $node, $new_notes . '  '
-                );
-            } elseif (isset($info['date'])) {
-                $this->addVersion(
-                    $version, $info['api'],
-                    $info['state']['release'], $info['state']['api'],
-                    $info['date'],
-                    $info['license']['identifier'], $info['license']['uri'],
-                    $new_notes
-                );
-            }
+            $this->addVersion(
+                $version, $info['api'],
+                $info['state']['release'], $info['state']['api'],
+                $info['date'],
+                $info['license']['identifier'], $info['license']['uri'],
+                $new_notes
+            );
         }
     }
 
