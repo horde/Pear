@@ -479,13 +479,33 @@ class Horde_Pear_Package_Xml
             if ($version == $thisVersion) {
                 $this->replaceTextNode('/p:package/p:notes', $new_notes);
             }
+            $this->_warnOnEmptyInfo($version, $info);
             $this->addVersion(
-                $version, $info['api'],
-                $info['state']['release'], $info['state']['api'],
-                $info['date'],
-                $info['license']['identifier'], $info['license']['uri'],
+                $version,
+                !empty($info['api']) ? $info['api'] : null,
+                !empty($info['state']['release']) ? $info['state']['release'] : null,
+                !empty($info['state']['api']) ? $info['state']['api'] : null,
+                !empty($info['date']) ? $info['date'] : null,
+                !empty($info['license']['identifier']) ? $info['license']['identifier'] : null,
+                !empty($info['license']['uri']) ? $info['license']['uri'] : null,
                 $new_notes
             );
+        }
+    }
+
+    /**
+     * Write a warning to STDERR when missing the specified entries in the
+     * $info array.
+     *
+     * @param  string $version The version the note entry is for.
+     * @param  array  $info    The note info entry.
+     */
+    protected function _warnOnEmptyInfo($version, $info)
+    {
+        foreach (array('api', 'state', 'date', 'license') as $entry) {
+            if (empty($info[$entry])) {
+                fwrite(STDERR, "NOTICE: Missing '$entry' entry in version $version\n");
+            }
         }
     }
 
