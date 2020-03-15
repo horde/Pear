@@ -36,6 +36,8 @@ implements Horde_Pear_Package_Contents_Role
         $elements = explode('/', substr($file, 1));
         $basedir = array_shift($elements);
         switch ($basedir) {
+        case 'config':
+            return 'cfg';
         case 'bin':
             return 'script';
         case 'COPYING':

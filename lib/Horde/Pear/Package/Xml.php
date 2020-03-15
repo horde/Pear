@@ -19,6 +19,8 @@
  * @copyright 2011-2017 Horde LLC
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
+ *
+ * @method updateContents(Horde_Pear_Package_Xml $xml, Horde_Pear_Package_Contents $content = null, $options = array())
  */
 class Horde_Pear_Package_Xml
 {
