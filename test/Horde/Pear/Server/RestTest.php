@@ -135,7 +135,7 @@ extends Horde_Pear_TestCase
         $response = $this->_getRest()->fetchReleaseInformation('Horde_Core', '1.0.0');
         rewind($response);
         $this->assertContains(
-            'Core Horde Framework libraries',
+            'Core Horde Framework library',
             stream_get_contents($response)
         );
     }
