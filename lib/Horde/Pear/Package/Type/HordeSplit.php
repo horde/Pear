@@ -94,13 +94,17 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                     $this->getGitIgnore(),
                     $this->getRepositoryRoot()
                 ),
+                new Horde_Pear_Package_Contents_Ignore_Git(
+                    $this->getGlobalGitIgnore(),
+                    $this->getRepositoryRoot()
+                ),
                 new Horde_Pear_Package_Contents_Ignore_Composer()
             )
         );
     }
 
     /**
-     * Return the contents of the Horde .gitignore file.
+     * Returns the contents of the Horde .gitignore file.
      *
      * @return string The .gitignore patterns.
      */
@@ -109,6 +113,27 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
         return file_exists($this->getRepositoryRoot() . '/.gitignore')
             ? file_get_contents($this->getRepositoryRoot() . '/.gitignore')
             : '';
+    }
+
+    /**
+     * Returns the contents of the global Git exclude file.
+     *
+     * @return string The .gitignore patterns.
+     */
+    public function getGlobalGitIgnore()
+    {
+        exec('git config --global core.excludesfile', $output, $result);
+        if (0 !== $result) {
+            return '';
+        }
+        $files = array();
+        foreach ($output as $file) {
+            $file = preg_replace('/^~\//', $_SERVER['HOME'] . '/', $file);
+            if (file_exists($file)) {
+                $files[] = file_get_contents($file);
+            }
+        }
+        return implode("\n", $files);
     }
 
     /**

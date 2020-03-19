@@ -9,6 +9,7 @@
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
+    [jan] Read global gitignore file too, when ignoring files for packaging.
     [jan] Add Horde_Pear_Package_Xml#addAuthor() and addDependency().
     [jan] Add Horde_Pear_Package_Xml#addVersion().
     [jan] Add Horde_Pear_Package_Xml#setNotes().
