@@ -85,7 +85,7 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                         '/.gitignore',
                         '/.horde.yml',
                         '/.travis.ini',
-                        '/.travis.php7.ini',
+                        '/.travis.*.ini',
                         '/.travis.yml',
                     ),
                     $this->getRepositoryRoot()
