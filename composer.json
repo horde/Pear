@@ -34,9 +34,6 @@
     "autoload": {
         "psr-0": {
             "Horde_Pear": "lib/"
-        },
-        "psr-4": {
-            "Horde\\Pear\\": "src/"
         }
     }
 }
