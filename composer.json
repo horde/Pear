@@ -21,15 +21,15 @@
     ],
     "require": {
         "horde/horde-installer-plugin": "*",
-        "php": "^5.3 || ^7",
-        "horde/exception": "^2",
-        "horde/util": "^2",
-        "horde/xml_element": "^2",
-        "horde/yaml": "^2"
+        "php": "^7",
+        "horde/Exception": "^2",
+        "horde/Util": "^2",
+        "horde/Xml_Element": "^2",
+        "horde/Yaml": "^2"
     },
     "suggest": {
-        "horde/http": "^2",
-        "horde/test": "^2.1"
+        "horde/Http": "^2",
+        "horde/Test": "^2.1"
     },
     "autoload": {
         "psr-0": {
