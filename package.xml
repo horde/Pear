@@ -300,58 +300,14 @@
  <dependencies>
   <required>
    <php>
-    <min>5.3.0</min>
+    <min>7.0.0</min>
     <max>8.0.0alpha1</max>
     <exclude>8.0.0alpha1</exclude>
    </php>
    <pearinstaller>
     <min>1.9.0</min>
    </pearinstaller>
-   <package>
-    <name>Horde_Exception</name>
-    <channel>pear.horde.org</channel>
-    <min>2.0.0</min>
-    <max>3.0.0alpha1</max>
-    <exclude>3.0.0alpha1</exclude>
-   </package>
-   <package>
-    <name>Horde_Util</name>
-    <channel>pear.horde.org</channel>
-    <min>2.0.0</min>
-    <max>3.0.0alpha1</max>
-    <exclude>3.0.0alpha1</exclude>
-   </package>
-   <package>
-    <name>Horde_Xml_Element</name>
-    <channel>pear.horde.org</channel>
-    <min>2.0.0</min>
-    <max>3.0.0alpha1</max>
-    <exclude>3.0.0alpha1</exclude>
-   </package>
-   <package>
-    <name>Horde_Yaml</name>
-    <channel>pear.horde.org</channel>
-    <min>2.0.0</min>
-    <max>3.0.0alpha1</max>
-    <exclude>3.0.0alpha1</exclude>
-   </package>
   </required>
-  <optional>
-   <package>
-    <name>Horde_Http</name>
-    <channel>pear.horde.org</channel>
-    <min>2.0.0</min>
-    <max>3.0.0alpha1</max>
-    <exclude>3.0.0alpha1</exclude>
-   </package>
-   <package>
-    <name>Horde_Test</name>
-    <channel>pear.horde.org</channel>
-    <min>2.1.0</min>
-    <max>3.0.0alpha1</max>
-    <exclude>3.0.0alpha1</exclude>
-   </package>
-  </optional>
  </dependencies>
  <phprelease>
   <filelist>
