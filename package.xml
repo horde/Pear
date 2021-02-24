@@ -21,6 +21,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
  <notes>
+* [jan] Read global gitignore file too, when ignoring files for packaging.
 * [jan] Add Horde_Pear_Package_Xml#addAuthor() and addDependency().
 * [jan] Add Horde_Pear_Package_Xml#addVersion().
 * [jan] Add Horde_Pear_Package_Xml#setNotes().
@@ -469,10 +470,12 @@
   <release>
    <version>
     <release>1.0.0alpha2</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2012-04-10</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -484,10 +487,12 @@
   <release>
    <version>
     <release>1.0.0alpha3</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2012-07-06</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -498,10 +503,12 @@
   <release>
    <version>
     <release>1.0.0alpha4</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2013-03-05</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -511,10 +518,12 @@
   <release>
    <version>
     <release>1.0.0alpha5</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2013-10-15</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -525,10 +534,12 @@
   <release>
    <version>
     <release>1.0.0alpha6</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2013-11-19</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -538,10 +549,12 @@
   <release>
    <version>
     <release>1.0.0alpha7</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2015-01-09</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -552,10 +565,12 @@
   <release>
    <version>
     <release>1.0.0alpha8</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2015-04-13</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -566,10 +581,12 @@
   <release>
    <version>
     <release>1.0.0alpha9</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2015-04-28</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -579,10 +596,12 @@
   <release>
    <version>
     <release>1.0.0alpha10</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2016-03-08</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -592,10 +611,12 @@
   <release>
    <version>
     <release>1.0.0alpha11</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2016-07-12</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -606,10 +627,12 @@
   <release>
    <version>
     <release>1.0.0alpha12</release>
-    <api>1.0.0</api></version>
+    <api>1.0.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
+    <api>alpha</api>
+   </stability>
    <date>2017-05-03</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -619,13 +642,16 @@
   <release>
    <version>
     <release>2.0.0alpha1</release>
-    <api>2.0.0alpha1</api></version>
+    <api>2.0.0alpha1</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>alpha</api></stability>
-   <date>2021-02-24</date>
+    <api>alpha</api>
+   </stability>
+   <date>2017-10-20</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
+* [jan] Read global gitignore file too, when ignoring files for packaging.
 * [jan] Add Horde_Pear_Package_Xml#addAuthor() and addDependency().
 * [jan] Add Horde_Pear_Package_Xml#addVersion().
 * [jan] Add Horde_Pear_Package_Xml#setNotes().
