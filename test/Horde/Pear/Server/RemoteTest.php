@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Server;
+use Horde_Pear_TestCase;
 
 /**
  * Test the remote server handler.
@@ -22,12 +24,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Server_RemoteTest
-extends Horde_Pear_TestCase
+class RemoteTest extends Horde_Pear_TestCase
 {
     private $_server;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('Horde_Http_Client')) {
             $this->markTestSkipped('Horde_Http is missing!');

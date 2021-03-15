@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit;
+use Horde_Pear_TestCase;
 
 /**
  * Test the remote server handler.
@@ -24,8 +26,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_RemoteTest
-extends Horde_Pear_TestCase
+class RemoteTest extends Horde_Pear_TestCase
 {
     public function testListPackages()
     {

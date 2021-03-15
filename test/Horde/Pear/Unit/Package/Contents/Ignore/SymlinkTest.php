@@ -11,6 +11,10 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Contents\Ignore;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Contents_Ignore_Symlink;
+use \SplFileInfo;
 
 /**
  * Test the symlink ignore handler for package contents.
@@ -22,10 +26,9 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Contents_Ignore_SymlinkTest
-extends Horde_Pear_TestCase
+class SymlinkTest extends Horde_Pear_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->_file = tempnam(sys_get_temp_dir(), 'horde_pear_');
         file_put_contents($this->_file, '');
@@ -37,7 +40,7 @@ extends Horde_Pear_TestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unlink($this->_link);
         unlink($this->_file);

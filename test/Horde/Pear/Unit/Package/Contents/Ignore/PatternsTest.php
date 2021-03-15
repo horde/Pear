@@ -11,6 +11,10 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Contents\Ignore;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Contents_Ignore_Patterns;
+use \SplFileInfo;
 
 /**
  * Test the pattern based ignore handler for package contents.
@@ -22,8 +26,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Contents_Ignore_PatternsTest
-extends Horde_Pear_TestCase
+class PatternsTest extends Horde_Pear_TestCase
 {
     public function testAny()
     {

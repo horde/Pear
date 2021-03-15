@@ -11,6 +11,9 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Dependencies;
 
 /**
  * Test the dependency handling.
@@ -22,8 +25,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_DependenciesTest
-extends Horde_Pear_TestCase
+class DependenciesTest extends Horde_Pear_TestCase
 {
     public function testPhp()
     {
@@ -124,6 +126,7 @@ extends Horde_Pear_TestCase
      */
     public function testUnsupported()
     {
+        $this->expectException('Horde_Pear_Exception');
         $result = array();
         Horde_Pear_Package_Dependencies::addDependency(
             array('name' => 'Z'), 'unsupported', 'yes', $result

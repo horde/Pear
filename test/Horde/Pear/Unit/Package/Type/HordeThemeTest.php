@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Type;
+use Horde_Pear_TestCase;
 
 /**
  * Test the HordeTheme package type.
@@ -22,8 +24,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Type_HordeThemeTest
-extends Horde_Pear_TestCase
+class HordeThemeTest extends Horde_Pear_TestCase
 {
     public function testGetRoot()
     {

@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Xml;
+use Horde_Pear_TestCase;
 
 /**
  * Test the directory handler.
@@ -22,8 +24,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Xml_DirectoryTest
-extends Horde_Pear_TestCase
+class DirectoryTest extends Horde_Pear_TestCase
 {
     public function testGetFiles()
     {

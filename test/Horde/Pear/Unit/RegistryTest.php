@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit;
+use Horde_Pear_TestCase;
 
 /**
  * Test the registry wrapper.
@@ -22,8 +24,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_RegistryTest
-extends Horde_Pear_TestCase
+class RegistryTest extends Horde_Pear_TestCase
 {
     public function testListPackages()
     {

@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Server;
+use Horde_Pear_TestCase;
 
 /**
  * Test the registry wrapper.
@@ -22,12 +24,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Server_RegistryTest
-extends Horde_Pear_TestCase
+class RegistryTest extends Horde_Pear_TestCase
 {
     private $_config;
 
-    public function setUp()
+    public function setUp(): void
     {
         $config = self::getConfig('PEAR_TEST_CONFIG');
         if ($config && !empty($config['pear']['config'])) {

@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit;
+use Horde_Pear_TestCase;
 
 /**
  * Test the REST connector.
@@ -22,8 +24,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_RestTest
-extends Horde_Pear_TestCase
+class RestTest extends Horde_Pear_TestCase
 {
     public function testFetchPackageList()
     {

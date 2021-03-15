@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Access;
+use Horde_Pear_TestCase;
 
 /**
  * Test the rest access helper.
@@ -22,8 +24,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Rest_AccessTest
-extends Horde_Pear_TestCase
+class AccessTest extends Horde_Pear_TestCase
 {
     public function testLatestRelease()
     {

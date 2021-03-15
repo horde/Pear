@@ -11,6 +11,9 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Contents\InstallAs;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Type_Horde;
 
 /**
  * Test the install paths for horde applications.
@@ -22,8 +25,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Contents_InstallAs_HordeApplicationTest
-extends Horde_Pear_TestCase
+class HordeApplicationTest extends Horde_Pear_TestCase
 {
     public function testInstallAsType()
     {

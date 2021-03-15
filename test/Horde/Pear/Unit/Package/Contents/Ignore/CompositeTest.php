@@ -11,6 +11,13 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Contents\Ignore;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Contents_Ignore_Composite;
+use \Horde_Pear_Package_Contents_Ignore_Patterns;
+use \Horde_Pear_Package_Contents_Ignore_Dot;
+use \Horde_Pear_Package_Contents_Ignore_Hidden;
+use \SplFileInfo;
 
 /**
  * Test the composite ignore handler for package contents.
@@ -22,8 +29,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Contents_Ignore_CompositeTest
-extends Horde_Pear_TestCase
+class CompositeTest extends Horde_Pear_TestCase
 {
     public function testAny()
     {

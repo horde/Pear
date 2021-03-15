@@ -11,6 +11,10 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Contents;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Contents_List;
+use \Horde_Pear_Package_Type_Horde;
 
 /**
  * Test the core content list handler for package.xml files.
@@ -22,8 +26,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Contents_ListTest
-extends Horde_Pear_TestCase
+class ListTest extends Horde_Pear_TestCase
 {
     public function testCount()
     {

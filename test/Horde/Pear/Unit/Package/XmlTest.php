@@ -11,6 +11,8 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package;
+use Horde_Pear_TestCase;
 
 /**
  * Test the core package XML handler.
@@ -22,8 +24,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_XmlTest
-extends Horde_Pear_TestCase
+class XmlTest extends Horde_Pear_TestCase
 {
     public function testGetName()
     {

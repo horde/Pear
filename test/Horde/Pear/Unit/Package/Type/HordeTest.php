@@ -11,6 +11,9 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear\Unit\Package\Type;
+use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Type_Horde;
 
 /**
  * Test the Horde package type.
@@ -22,8 +25,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_Unit_Package_Type_HordeTest
-extends Horde_Pear_TestCase
+class HordeTest extends Horde_Pear_TestCase
 {
     public function testGetRoot()
     {
@@ -67,7 +69,7 @@ extends Horde_Pear_TestCase
 
     public function testGitIgnore()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '/lib/',
             $this->_getFixture()->getGitIgnore()
         );
