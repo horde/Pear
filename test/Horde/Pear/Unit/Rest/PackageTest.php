@@ -13,6 +13,7 @@
  */
 namespace Horde\Pear\Unit\Access;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Rest_Package;
 
 /**
  * Test the package information parser.

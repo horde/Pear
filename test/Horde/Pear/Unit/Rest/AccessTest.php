@@ -13,6 +13,14 @@
  */
 namespace Horde\Pear\Unit\Access;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Stub_Request;
+use \Horde_Pear_Rest;
+use \Horde_Http_Client;
+use \Horde_Pear_Rest_Release;
+use \Horde_Support_StringStream;
+use \Horde_Http_Response_Mock;
+use \Horde_Http_Request_Mock;
+use \Horde_Pear_Rest_Package;
 
 /**
  * Test the rest access helper.

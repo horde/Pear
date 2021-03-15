@@ -13,6 +13,7 @@
  */
 namespace Horde\Pear\Unit\Access;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Rest_Dependencies;
 
 /**
  * Test the package information parser.
@@ -43,6 +44,7 @@ class DependenciesTest extends Horde_Pear_TestCase
      */
     public function testBrokenSerialization()
     {
+        $this->expectException('Horde_Pear_Exception');
         $deps = new Horde_Pear_Rest_Dependencies('YYY');
     }
 

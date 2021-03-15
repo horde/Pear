@@ -13,6 +13,7 @@
  */
 namespace Horde\Pear\Unit\Package\Type;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Type_HordeTheme;
 
 /**
  * Test the HordeTheme package type.
@@ -68,7 +69,7 @@ class HordeThemeTest extends Horde_Pear_TestCase
 
     public function testGitIgnore()
     {
-        $this->assertContains(
+        $this->assertStringContainsString(
             '/lib/',
             $this->_getFixture()->getGitIgnore()
         );

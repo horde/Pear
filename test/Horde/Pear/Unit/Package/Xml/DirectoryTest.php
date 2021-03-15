@@ -13,6 +13,9 @@
  */
 namespace Horde\Pear\Unit\Package\Xml;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Package_Xml;
+use \Horde_Pear_Package_Xml_Element_Directory;
+use \Horde_Pear_Package_Xml_Directory;
 
 /**
  * Test the directory handler.

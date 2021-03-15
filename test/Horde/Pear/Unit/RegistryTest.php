@@ -13,6 +13,7 @@
  */
 namespace Horde\Pear\Unit;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Registry;
 
 /**
  * Test the registry wrapper.
@@ -28,10 +29,7 @@ class RegistryTest extends Horde_Pear_TestCase
 {
     public function testListPackages()
     {
-        $this->assertInternalType(
-            'array',
-            $this->_getRegistry()->listPackages()
-        );
+        $this->assertIsArray($this->_getRegistry()->listPackages());
     }
 
     private function _getRegistry()

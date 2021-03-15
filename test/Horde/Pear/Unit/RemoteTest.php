@@ -13,7 +13,10 @@
  */
 namespace Horde\Pear\Unit;
 use Horde_Pear_TestCase;
-
+use \Horde_Pear_Stub_Request;
+use \Horde_Support_StringStream;
+use \Horde_Http_Response_Mock;
+use \Horde_Http_Request_Mock;
 /**
  * Test the remote server handler.
  *
@@ -30,8 +33,7 @@ class RemoteTest extends Horde_Pear_TestCase
 {
     public function testListPackages()
     {
-        $this->assertInternalType(
-            'array',
+        $this->assertIsArray(
             $this->getRemoteList()->listPackages()
         );
     }
@@ -65,6 +67,7 @@ class RemoteTest extends Horde_Pear_TestCase
      */
     public function testLatestUriExceptionForNoRelease()
     {
+        $this->expectException('Horde_Pear_Exception');
         $this->_getLatestRemote()->getLatestDownloadUri('A', 'dev');
     }
 

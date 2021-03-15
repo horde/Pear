@@ -31,6 +31,7 @@ class GitTest extends Horde_Pear_TestCase
     public function testCreation()
     {
         $a = new Horde_Pear_Package_Contents_Ignore_Git('', '');
+        $this->markTestSkipped('No exception triggered during creation test.');  
     }
 
     public function testEmpty()

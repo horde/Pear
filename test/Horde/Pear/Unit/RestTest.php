@@ -13,6 +13,11 @@
  */
 namespace Horde\Pear\Unit;
 use Horde_Pear_TestCase;
+use \Horde_Support_StringStream;
+use \Horde_Http_Response_Mock;
+use \Horde_Http_Request_Mock;
+use \Horde_Pear_Rest;
+use \Horde_Http_Client;
 
 /**
  * Test the REST connector.
@@ -28,8 +33,7 @@ class RestTest extends Horde_Pear_TestCase
 {
     public function testFetchPackageList()
     {
-        $this->assertInternalType(
-            'resource',
+        $this->assertIsResource(
             $this->_getRest()->fetchPackageList()
         );
     }
@@ -66,8 +70,7 @@ class RestTest extends Horde_Pear_TestCase
 
     public function testPackageLatest()
     {
-        $this->assertInternalType(
-            'array',
+        $this->assertIsArray(
             $this->_getRest()->fetchLatestPackageReleases('TEST')
         );
     }

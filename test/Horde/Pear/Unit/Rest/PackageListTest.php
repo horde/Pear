@@ -13,6 +13,7 @@
  */
 namespace Horde\Pear\Unit\Access;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Rest_PackageList;
 
 /**
  * Test the package list parser.
@@ -76,6 +77,7 @@ class PackageListTest extends Horde_Pear_TestCase
      */
     public function testGetInvalidPackageLink()
     {
+        $this->expectException('Horde_Pear_Exception');
         $this->_getPackageList()->getPackageLink('Horde_NoSuchPackage');
     }
 

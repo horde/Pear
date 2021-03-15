@@ -13,6 +13,7 @@
  */
 namespace Horde\Pear\Unit\Access;
 use Horde_Pear_TestCase;
+use \Horde_Pear_Rest_Releases;
 
 /**
  * Test the releases parser.
@@ -79,6 +80,7 @@ class ReleasesTest extends Horde_Pear_TestCase
      */
     public function testGetInvalidReleasesStability()
     {
+        $this->expectException('Horde_Pear_Exception');
         $this->_getReleases()->getReleaseStability('0.0.2');
     }
 
