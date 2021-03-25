@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Access;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Rest_PackageList;
 
 /**
@@ -25,7 +25,7 @@ use \Horde_Pear_Rest_PackageList;
  * @package    Pear
  * @subpackage UnitTests
  */
-class PackageListTest extends Horde_Pear_TestCase
+class PackageListTest extends TestCase
 {
     public function testCount()
     {

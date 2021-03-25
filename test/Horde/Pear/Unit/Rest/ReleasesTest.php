@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Access;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Rest_Releases;
 
 /**
@@ -25,7 +25,7 @@ use \Horde_Pear_Rest_Releases;
  * @package    Pear
  * @subpackage UnitTests
  */
-class ReleasesTest extends Horde_Pear_TestCase
+class ReleasesTest extends TestCase
 {
     public function testCount()
     {

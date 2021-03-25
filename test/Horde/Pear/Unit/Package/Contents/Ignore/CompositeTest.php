@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Package\Contents\Ignore;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Package_Contents_Ignore_Composite;
 use \Horde_Pear_Package_Contents_Ignore_Patterns;
 use \Horde_Pear_Package_Contents_Ignore_Dot;
@@ -29,7 +29,7 @@ use \SplFileInfo;
  * @package    Pear
  * @subpackage UnitTests
  */
-class CompositeTest extends Horde_Pear_TestCase
+class CompositeTest extends TestCase
 {
     public function testAny()
     {

@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Server;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 
 /**
  * Test the REST connector.
@@ -24,7 +24,7 @@ use Horde_Pear_TestCase;
  * @package    Pear
  * @subpackage UnitTests
  */
-class RestTest extends Horde_Pear_TestCase
+class RestTest extends TestCase
 {
     private $_server;
 

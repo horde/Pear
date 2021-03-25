@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Package\Xml;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Package_Xml;
 use \Horde_Pear_Package_Xml_Element_Directory;
 use \Horde_Pear_Package_Xml_Directory;
@@ -27,7 +27,7 @@ use \Horde_Pear_Package_Xml_Directory;
  * @package    Pear
  * @subpackage UnitTests
  */
-class DirectoryTest extends Horde_Pear_TestCase
+class DirectoryTest extends TestCase
 {
     public function testGetFiles()
     {

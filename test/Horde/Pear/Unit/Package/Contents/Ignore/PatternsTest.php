@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Package\Contents\Ignore;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Package_Contents_Ignore_Patterns;
 use \SplFileInfo;
 
@@ -26,7 +26,7 @@ use \SplFileInfo;
  * @package    Pear
  * @subpackage UnitTests
  */
-class PatternsTest extends Horde_Pear_TestCase
+class PatternsTest extends TestCase
 {
     public function testAny()
     {

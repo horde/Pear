@@ -11,6 +11,14 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+namespace Horde\Pear;
+use Horde_Test_Case;
+use \Horde_Support_StringStream;
+use \Horde_Pear_Remote;
+use \Horde_Pear_Rest;
+use \Horde_Http_Client;
+use \Horde_Http_Response_Mock;
+use \Horde_Http_Request_Mock;
 
 /**
  * Basic test case.
@@ -22,8 +30,7 @@
  * @package    Pear
  * @subpackage UnitTests
  */
-class Horde_Pear_TestCase
-extends Horde_Test_Case
+class TestCase extends Horde_Test_Case
 {
     protected function _getRelease()
     {

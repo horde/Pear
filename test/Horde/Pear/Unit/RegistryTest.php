@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Registry;
 
 /**
@@ -25,7 +25,7 @@ use \Horde_Pear_Registry;
  * @package    Pear
  * @subpackage UnitTests
  */
-class RegistryTest extends Horde_Pear_TestCase
+class RegistryTest extends TestCase
 {
     public function testListPackages()
     {

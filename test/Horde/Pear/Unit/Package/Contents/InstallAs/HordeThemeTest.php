@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Package\Contents\InstallAs;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Package_Type_HordeTheme;
 
 /**
@@ -25,7 +25,7 @@ use \Horde_Pear_Package_Type_HordeTheme;
  * @package    Pear
  * @subpackage UnitTests
  */
-class HordeThemeTest extends Horde_Pear_TestCase
+class HordeThemeTest extends TestCase
 {
     public function testInstallAsType()
     {

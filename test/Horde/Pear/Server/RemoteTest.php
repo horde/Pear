@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Server;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 
 /**
  * Test the remote server handler.
@@ -24,7 +24,7 @@ use Horde_Pear_TestCase;
  * @package    Pear
  * @subpackage UnitTests
  */
-class RemoteTest extends Horde_Pear_TestCase
+class RemoteTest extends TestCase
 {
     private $_server;
 

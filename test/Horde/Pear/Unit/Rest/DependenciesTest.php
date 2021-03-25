@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Access;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Rest_Dependencies;
 
 /**
@@ -25,7 +25,7 @@ use \Horde_Pear_Rest_Dependencies;
  * @package    Pear
  * @subpackage UnitTests
  */
-class DependenciesTest extends Horde_Pear_TestCase
+class DependenciesTest extends TestCase
 {
     public function testEmpty()
     {

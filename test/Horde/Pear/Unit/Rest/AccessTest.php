@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Access;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Stub_Request;
 use \Horde_Pear_Rest;
 use \Horde_Http_Client;
@@ -32,7 +32,7 @@ use \Horde_Pear_Rest_Package;
  * @package    Pear
  * @subpackage UnitTests
  */
-class AccessTest extends Horde_Pear_TestCase
+class AccessTest extends TestCase
 {
     public function testLatestRelease()
     {

@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Access;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Rest_Package;
 
 /**
@@ -25,7 +25,7 @@ use \Horde_Pear_Rest_Package;
  * @package    Pear
  * @subpackage UnitTests
  */
-class PackageTest extends Horde_Pear_TestCase
+class PackageTest extends TestCase
 {
     public function testName()
     {

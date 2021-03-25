@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Support_StringStream;
 use \Horde_Http_Response_Mock;
 use \Horde_Http_Request_Mock;
@@ -29,7 +29,7 @@ use \Horde_Http_Client;
  * @package    Pear
  * @subpackage UnitTests
  */
-class RestTest extends Horde_Pear_TestCase
+class RestTest extends TestCase
 {
     public function testFetchPackageList()
     {

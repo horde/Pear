@@ -12,7 +12,7 @@
  * @subpackage UnitTests
  */
 namespace Horde\Pear\Unit\Package\Contents\Ignore;
-use Horde_Pear_TestCase;
+use Horde\Pear\TestCase;
 use \Horde_Pear_Package_Contents_Ignore_Symlink;
 use \SplFileInfo;
 
@@ -26,7 +26,7 @@ use \SplFileInfo;
  * @package    Pear
  * @subpackage UnitTests
  */
-class SymlinkTest extends Horde_Pear_TestCase
+class SymlinkTest extends TestCase
 {
     public function setUp(): void
     {
