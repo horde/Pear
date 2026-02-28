@@ -238,7 +238,7 @@ class Horde_Pear_Package_Xml_Directory
         while ($next === '') {
             $next = array_shift($tree);
         }
-        if (empty($tree) && !strlen($next)) {
+        if (empty($tree) && ($next === null || $next === '')) {
             return $this;
         }
         if (!isset($this->_subdirectories[$next])) {
