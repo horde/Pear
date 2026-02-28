@@ -51,6 +51,17 @@
     [jan] Add Horde_Pear_Package_Xml#addVersion().
     [jan] Add Horde_Pear_Package_Xml#setNotes().
     [jan] Set replacement tasks for binaries and translation handlers.
+1.0.0-alpha14:
+  api: 2.0.0-alpha1
+  state:
+    release: alpha
+    api: alpha
+  date: 2026-02-28
+  license:
+    identifier: LGPL-2.1-only
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    fix: remove incorrect DOMDocument 3rd parameter
 1.0.0-alpha13:
   api: 2.0.0-alpha1
   state:
