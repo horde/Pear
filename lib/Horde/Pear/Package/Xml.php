@@ -80,7 +80,7 @@ class Horde_Pear_Package_Xml
         }
 
         $old_libxml_use_errors = libxml_use_internal_errors(true);
-        $this->_xml = new DOMDocument('1.0', 'UTF-8', []);
+        $this->_xml = new DOMDocument('1.0', 'UTF-8');
         $this->_xml->loadXML(stream_get_contents($xml));
         foreach (libxml_get_errors() as $error) {
             switch ($error->level) {
