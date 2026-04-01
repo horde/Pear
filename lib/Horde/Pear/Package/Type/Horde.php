@@ -133,7 +133,6 @@ implements Horde_Pear_Package_Type
         case 'horde':
         case 'groupware':
         case 'webmail':
-        case 'kolab_webmail':
             $class = 'Horde_Pear_Package_Contents_InstallAs_Horde';
             break;
         case 'Horde_Role':
