@@ -38,7 +38,7 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
         if (!file_exists($this->getRootPath() . '/.horde.yml')) {
             throw new Horde_Pear_Exception('Cannot find the horde.yml file.');
         }
-        $yml = Horde_Yaml::loadFile($this->getRootPath() . '/.horde.yml');
+        $yml = \Horde\Yaml\Yaml::loadFile($this->getRootPath() . '/.horde.yml');
         if (!isset($yml['type'])) {
             throw new Horde_Pear_Exception('Missing type in ' . $this->getRootPath() . '/.horde.yml');
         }
