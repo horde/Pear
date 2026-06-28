@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,8 +22,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_InstallAs_Horde
-implements Horde_Pear_Package_Contents_InstallAs
+class Horde_Pear_Package_Contents_InstallAs_Horde implements Horde_Pear_Package_Contents_InstallAs
 {
     /**
      * Tell which location the specified file should be installed to.
@@ -37,13 +37,13 @@ implements Horde_Pear_Package_Contents_InstallAs
         $elements = explode('/', substr($file, 1));
         $basedir = array_shift($elements);
         switch ($basedir) {
-        case 'bin':
-        case 'doc':
-        case 'docs':
-        case 'test':
-            return join('/', $elements);
-        default:
-            return substr($file, 1);
+            case 'bin':
+            case 'doc':
+            case 'docs':
+            case 'test':
+                return join('/', $elements);
+            default:
+                return substr($file, 1);
         }
     }
 }

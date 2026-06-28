@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -20,8 +21,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Type_Horde
-implements Horde_Pear_Package_Type
+class Horde_Pear_Package_Type_Horde implements Horde_Pear_Package_Type
 {
     /**
      * The root path for the package.
@@ -86,11 +86,11 @@ implements Horde_Pear_Package_Type
     public function getIgnore()
     {
         return new Horde_Pear_Package_Contents_Ignore_Composite(
-            array(
+            [
                 new Horde_Pear_Package_Contents_Ignore_Dot(),
                 new Horde_Pear_Package_Contents_Ignore_Symlink(),
                 new Horde_Pear_Package_Contents_Ignore_Patterns(
-                    array(
+                    [
                         '/package.xml',
                         '*~',
                         'conf.php',
@@ -98,15 +98,15 @@ implements Horde_Pear_Package_Type
                         'bin/.htaccess',
                         'composer.*',
                         '.horde.yml',
-                    ),
+                    ],
                     $this->_root
                 ),
                 new Horde_Pear_Package_Contents_Ignore_Git(
                     $this->getGitIgnore(),
                     $this->getRepositoryRoot()
                 ),
-                new Horde_Pear_Package_Contents_Ignore_Composer()
-            )
+                new Horde_Pear_Package_Contents_Ignore_Composer(),
+            ]
         );
     }
 
@@ -129,21 +129,21 @@ implements Horde_Pear_Package_Type
     public function getInstallAs()
     {
         switch ($this->getName()) {
-        case 'base':
-        case 'horde':
-        case 'groupware':
-        case 'webmail':
-            $class = 'Horde_Pear_Package_Contents_InstallAs_Horde';
-            break;
-        case 'Horde_Role':
-            $class = 'Horde_Pear_Package_Contents_InstallAs_HordeRole';
-            break;
-        case 'components':
-            $class = 'Horde_Pear_Package_Contents_InstallAs_HordeComponent';
-            break;
-        default:
-            $class = 'Horde_Pear_Package_Contents_InstallAs_Horde' . $this->getType();
-            break;
+            case 'base':
+            case 'horde':
+            case 'groupware':
+            case 'webmail':
+                $class = 'Horde_Pear_Package_Contents_InstallAs_Horde';
+                break;
+            case 'Horde_Role':
+                $class = 'Horde_Pear_Package_Contents_InstallAs_HordeRole';
+                break;
+            case 'components':
+                $class = 'Horde_Pear_Package_Contents_InstallAs_HordeComponent';
+                break;
+            default:
+                $class = 'Horde_Pear_Package_Contents_InstallAs_Horde' . $this->getType();
+                break;
         }
         return new $class($this);
     }

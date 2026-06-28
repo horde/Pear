@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,9 +12,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Access;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Rest_Dependencies;
+use Horde_Pear_Rest_Dependencies;
 
 /**
  * Test the package information parser.
@@ -24,19 +27,20 @@ use \Horde_Pear_Rest_Dependencies;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class DependenciesTest extends TestCase
 {
     public function testEmpty()
     {
         $deps = new Horde_Pear_Rest_Dependencies(false);
-        $this->assertEquals(array(), $deps->getDependencies());
+        $this->assertEquals([], $deps->getDependencies());
     }
 
     public function testSerializedEmpty()
     {
         $deps = new Horde_Pear_Rest_Dependencies('b:0;');
-        $this->assertEquals(array(), $deps->getDependencies());
+        $this->assertEquals([], $deps->getDependencies());
     }
 
     /**
@@ -51,7 +55,7 @@ class DependenciesTest extends TestCase
     public function testDependencies()
     {
         $this->assertEquals(
-            array(array('name' => 'test', 'type' => 'pkg', 'optional' => 'no')),
+            [['name' => 'test', 'type' => 'pkg', 'optional' => 'no']],
             $this->_getDependencies()->getDependencies()
         );
     }
@@ -62,7 +66,7 @@ class DependenciesTest extends TestCase
             'a:1:{s:8:"optional";a:1:{s:7:"package";a:1:{s:4:"name";s:4:"test";}}}'
         );
         $this->assertEquals(
-            array(array('name' => 'test', 'type' => 'pkg', 'optional' => 'yes')),
+            [['name' => 'test', 'type' => 'pkg', 'optional' => 'yes']],
             $deps->getDependencies()
         );
     }
@@ -73,10 +77,10 @@ class DependenciesTest extends TestCase
             'a:1:{s:8:"optional";a:1:{s:7:"package";a:2:{i:0;a:1:{s:4:"name";s:5:"test2";}i:1;a:1:{s:4:"name";s:5:"test1";}}}}'
         );
         $this->assertEquals(
-            array(
-                array('name' => 'test2', 'type' => 'pkg', 'optional' => 'yes'),
-                array('name' => 'test1', 'type' => 'pkg', 'optional' => 'yes')
-            ),
+            [
+                ['name' => 'test2', 'type' => 'pkg', 'optional' => 'yes'],
+                ['name' => 'test1', 'type' => 'pkg', 'optional' => 'yes'],
+            ],
             $deps->getDependencies()
         );
     }
@@ -84,7 +88,7 @@ class DependenciesTest extends TestCase
     public function testDependenciesFromStream()
     {
         $this->assertEquals(
-            array(array('name' => 'test', 'type' => 'pkg', 'optional' => 'no')),
+            [['name' => 'test', 'type' => 'pkg', 'optional' => 'no']],
             $this->_getStreamDependencies()->getDependencies()
         );
     }

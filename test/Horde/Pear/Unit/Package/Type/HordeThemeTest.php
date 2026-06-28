@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2017-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,9 +12,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package\Type;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Type_HordeTheme;
+use Horde_Pear_Package_Type_HordeTheme;
 
 /**
  * Test the HordeTheme package type.
@@ -24,6 +27,7 @@ use \Horde_Pear_Package_Type_HordeTheme;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class HordeThemeTest extends TestCase
 {
@@ -102,7 +106,8 @@ class HordeThemeTest extends TestCase
     private function _getFixture()
     {
         return new Horde_Pear_Package_Type_HordeTheme(
-            $this->_getFixturePath(), $this->_getFixtureBase()
+            $this->_getFixturePath(),
+            $this->_getFixtureBase()
         );
     }
 

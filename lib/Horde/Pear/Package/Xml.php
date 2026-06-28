@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -25,10 +26,10 @@
 class Horde_Pear_Package_Xml
 {
     /** The package.xml namespace */
-    const XMLNAMESPACE = 'http://pear.php.net/dtd/package-2.0';
+    public const XMLNAMESPACE = 'http://pear.php.net/dtd/package-2.0';
 
     /** The package.xml tasks namespace */
-    const XMLTASKSNAMESPACE = 'http://pear.php.net/dtd/tasks-1.0';
+    public const XMLTASKSNAMESPACE = 'http://pear.php.net/dtd/tasks-1.0';
 
     /**
      * The parsed XML.
@@ -84,17 +85,17 @@ class Horde_Pear_Package_Xml
         $this->_xml->loadXML(stream_get_contents($xml));
         foreach (libxml_get_errors() as $error) {
             switch ($error->level) {
-            case LIBXML_ERR_WARNING:
-                $error_str = 'Warning ';
-                break;
+                case LIBXML_ERR_WARNING:
+                    $error_str = 'Warning ';
+                    break;
 
-            case LIBXML_ERR_ERROR:
-                $error_str = 'Error ';
-                break;
+                case LIBXML_ERR_ERROR:
+                    $error_str = 'Error ';
+                    break;
 
-            case LIBXML_ERR_FATAL:
-                $error_str = 'Fatal error ';
-                break;
+                case LIBXML_ERR_FATAL:
+                    $error_str = 'Fatal error ';
+                    break;
             }
 
             $error_str .= $error->code . ': ';
@@ -197,16 +198,18 @@ class Horde_Pear_Package_Xml
      */
     public function getVersions()
     {
-        $versions = array();
+        $versions = [];
         foreach ($this->findNodes('/p:package/p:changelog/p:release') as $release) {
-            $versions[] = array(
+            $versions[] = [
                 'version' => $this->getNodeTextRelativeTo(
-                    'p:version/p:release', $release
+                    'p:version/p:release',
+                    $release
                 ),
                 'stability' => $this->getNodeTextRelativeTo(
-                    'p:stability/p:release', $release
+                    'p:stability/p:release',
+                    $release
                 ),
-            );
+            ];
         }
         return $versions;
     }
@@ -240,7 +243,7 @@ class Horde_Pear_Package_Xml
      */
     public function getState($key = 'release')
     {
-        if (in_array($key, array('release', 'api'))) {
+        if (in_array($key, ['release', 'api'])) {
             return $this->getNodeText('/p:package/p:stability/p:' . $key);
         }
         throw new Horde_Pear_Exception(sprintf('Unsupported state "%s"!', $key));
@@ -253,7 +256,7 @@ class Horde_Pear_Package_Xml
      */
     public function getDependencies()
     {
-        $result = array();
+        $result = [];
         $this->_completeDependencies(
             $this->findNode('/p:package/p:dependencies/p:required'),
             $result,
@@ -285,14 +288,17 @@ class Horde_Pear_Package_Xml
             if ($dep->nodeType == XML_TEXT_NODE) {
                 continue;
             }
-            $input = array();
+            $input = [];
             $this->_dependencyInputValue($input, 'min', $dep);
             $this->_dependencyInputValue($input, 'max', $dep);
             $this->_dependencyInputValue($input, 'name', $dep);
             $this->_dependencyInputValue($input, 'channel', $dep);
             $this->_dependencyInputValue($input, 'conflicts', $dep);
             Horde_Pear_Package_Dependencies::addDependency(
-                $input, $dep->nodeName, $optional, $result
+                $input,
+                $dep->nodeName,
+                $optional,
+                $result
             );
         }
     }
@@ -344,14 +350,14 @@ class Horde_Pear_Package_Xml
      */
     public function getLeads()
     {
-        $result = array();
+        $result = [];
         foreach ($this->findNodes('/p:package/p:lead') as $lead) {
-            $result[] = array(
+            $result[] = [
                 'name' => $this->getNodeTextRelativeTo('./p:name', $lead),
                 'user' => $this->getNodeTextRelativeTo('./p:user', $lead),
                 'email' => $this->getNodeTextRelativeTo('./p:email', $lead),
                 'active' => $this->getNodeTextRelativeTo('./p:active', $lead),
-            );
+            ];
         }
         return $result;
     }
@@ -414,28 +420,38 @@ class Horde_Pear_Package_Xml
 
         $this->replaceTextNodeRelativeTo('./p:date', $release, $date);
         $this->replaceTextNodeRelativeTo(
-            './p:notes', $release, $notes . '  '
+            './p:notes',
+            $release,
+            $notes . '  '
         );
         $this->replaceTextNodeRelativeTo(
             './p:license',
             $release,
             $this->getLicense(),
-            array('uri' => $this->getLicenseLocation())
+            ['uri' => $this->getLicenseLocation()]
         );
         $version_node = $this->findNodeRelativeTo(
-            './p:version', $release
+            './p:version',
+            $release
         );
         $this->replaceTextNodeRelativeTo(
-            './p:api', $version_node, $api
+            './p:api',
+            $version_node,
+            $api
         );
         $stability_node = $this->findNodeRelativeTo(
-            './p:stability', $release
+            './p:stability',
+            $release
         );
         $this->replaceTextNodeRelativeTo(
-            './p:api', $stability_node, $stability_api
+            './p:api',
+            $stability_node,
+            $stability_api
         );
         $this->replaceTextNodeRelativeTo(
-            './p:release', $stability_node, $stability_release
+            './p:release',
+            $stability_node,
+            $stability_release
         );
     }
 
@@ -457,7 +473,9 @@ class Horde_Pear_Package_Xml
         $release = $this->_fetchCurrentRelease();
         if ($release !== null) {
             $this->replaceTextNodeRelativeTo(
-                './p:notes', $release, $new_notes . '  '
+                './p:notes',
+                $release,
+                $new_notes . '  '
             );
         }
     }
@@ -504,7 +522,7 @@ class Horde_Pear_Package_Xml
      */
     protected function _warnOnEmptyInfo($version, $info)
     {
-        foreach (array('api', 'state', 'date', 'license') as $entry) {
+        foreach (['api', 'state', 'date', 'license'] as $entry) {
             if (empty($info[$entry])) {
                 fwrite(STDERR, "NOTICE: Missing '$entry' entry in version $version\n");
             }
@@ -528,18 +546,26 @@ class Horde_Pear_Package_Xml
         $version = $this->findNode('/p:package/p:version');
         if ($rel_version) {
             $this->replaceTextNodeRelativeTo(
-                './p:release', $version, $rel_version
+                './p:release',
+                $version,
+                $rel_version
             );
             $this->replaceTextNodeRelativeTo(
-                './p:release', $release, $rel_version
+                './p:release',
+                $release,
+                $rel_version
             );
         }
         if ($api_version) {
             $this->replaceTextNodeRelativeTo(
-                './p:api', $version, $api_version
+                './p:api',
+                $version,
+                $api_version
             );
             $this->replaceTextNodeRelativeTo(
-                './p:api', $release, $api_version
+                './p:api',
+                $release,
+                $api_version
             );
         }
     }
@@ -564,18 +590,26 @@ class Horde_Pear_Package_Xml
         }
         if ($rel_state) {
             $this->replaceTextNodeRelativeTo(
-                './p:release', $stability, $rel_state
+                './p:release',
+                $stability,
+                $rel_state
             );
             $this->replaceTextNodeRelativeTo(
-                './p:release', $release, $rel_state
+                './p:release',
+                $release,
+                $rel_state
             );
         }
         if ($api_state) {
             $this->replaceTextNodeRelativeTo(
-                './p:api', $stability, $api_state
+                './p:api',
+                $stability,
+                $api_state
             );
             $this->replaceTextNodeRelativeTo(
-                './p:api', $release, $api_state
+                './p:api',
+                $release,
+                $api_state
             );
         }
     }
@@ -628,15 +662,15 @@ class Horde_Pear_Package_Xml
         }
         $package = $this->_appendChild($deps, $type, '', ' ');
         $constraints = array_merge(
-            array(
+            [
                 'name' => null,
                 'channel' => null,
                 'min' => null,
                 'max' => null,
                 'recommended' => null,
                 'exclude' => null,
-                'conflicts' => null
-            ),
+                'conflicts' => null,
+            ],
             $constraints
         );
         $constraints = array_filter($constraints);
@@ -660,11 +694,13 @@ class Horde_Pear_Package_Xml
      * @param string $stability_release The stability for the next release.
      * @param boolean $keepTime         Keep the <time> element?
      */
-    public function addNextVersion($version, $initial_note,
-                                   $stability_api = null,
-                                   $stability_release = null,
-                                   $keepTime = false)
-    {
+    public function addNextVersion(
+        $version,
+        $initial_note,
+        $stability_api = null,
+        $stability_release = null,
+        $keepTime = false
+    ) {
         $notes = "\n* " . $initial_note . "\n ";
         $api = $this->getNodeText('/p:package/p:version/p:api');
         if ($stability_api === null) {
@@ -677,7 +713,9 @@ class Horde_Pear_Package_Xml
         }
         $version_node = $this->findNode('/p:package/p:version');
         $this->replaceTextNodeRelativeTo(
-            './p:release', $version_node, $version
+            './p:release',
+            $version_node,
+            $version
         );
         $this->replaceTextNode('/p:package/p:notes', $notes);
         $this->replaceTextNode('/p:package/p:date', gmdate('Y-m-d'));
@@ -689,10 +727,13 @@ class Horde_Pear_Package_Xml
         }
 
         $this->addVersion(
-            $version, $api,
-            $stability_release, $stability_api,
+            $version,
+            $api,
+            $stability_release,
+            $stability_api,
             date('Y-m-d'),
-            $this->getLicense(), $this->getLicenseLocation(),
+            $this->getLicense(),
+            $this->getLicenseLocation(),
             $notes
         );
     }
@@ -710,10 +751,15 @@ class Horde_Pear_Package_Xml
      * @param string $notes             The text for the release notes.
      */
     public function addVersion(
-        $version, $api, $stability_release, $stability_api, $date, $license,
-        $licenseLocation, $notes
-    )
-    {
+        $version,
+        $api,
+        $stability_release,
+        $stability_api,
+        $date,
+        $license,
+        $licenseLocation,
+        $notes
+    ) {
         $changelog = $this->findNode('/p:package/p:changelog');
         $this->_insertWhiteSpace($changelog, ' ');
 
@@ -782,7 +828,8 @@ class Horde_Pear_Package_Xml
     {
         $this->_insertWhiteSpace($parent, $ws);
         $new_node = $this->_xml->createElementNS(
-            self::XMLNAMESPACE, 'license'
+            self::XMLNAMESPACE,
+            'license'
         );
         $text = $this->_xml->createTextNode($license);
         $new_node->appendChild($text);
@@ -966,7 +1013,8 @@ class Horde_Pear_Package_Xml
     {
         if ($node = $this->findNode($path)) {
             $node->parentNode->replaceChild(
-                $this->_replacementNode($node, $value), $node
+                $this->_replacementNode($node, $value),
+                $node
             );
         }
     }
@@ -981,9 +1029,12 @@ class Horde_Pear_Package_Xml
      *
      * @return DOMNodeList The list of DOMNodes.
      */
-    public function replaceTextNodeRelativeTo($path, DOMNode $context, $value,
-                                              $attributes = array())
-    {
+    public function replaceTextNodeRelativeTo(
+        $path,
+        DOMNode $context,
+        $value,
+        $attributes = []
+    ) {
         if ($node = $this->findNodeRelativeTo($path, $context)) {
             $new_node = $this->_replacementNode($node, $value);
             foreach ($attributes as $name => $value) {
@@ -1004,7 +1055,8 @@ class Horde_Pear_Package_Xml
     private function _replacementNode($old_node, $value)
     {
         $new_node = $this->_xml->createElementNS(
-            self::XMLNAMESPACE, $old_node->tagName
+            self::XMLNAMESPACE,
+            $old_node->tagName
         );
         $text = $this->_xml->createTextNode($value);
         $new_node->appendChild($text);
@@ -1025,7 +1077,8 @@ class Horde_Pear_Package_Xml
     {
         $this->_insertWhiteSpace($parent, $ws);
         $new_node = $this->_xml->createElementNS(
-            self::XMLNAMESPACE, $name
+            self::XMLNAMESPACE,
+            $name
         );
         if ($value !== null && $value !== '') {
             $text = $this->_xml->createTextNode($value);
@@ -1054,13 +1107,13 @@ class Horde_Pear_Package_Xml
     public function insert($elements, $point)
     {
         if (!is_array($elements)) {
-            $elements = array($elements);
+            $elements = [$elements];
         }
         $node = null;
         foreach ($elements as $key => $element) {
             if (is_string($element)) {
                 $element = $this->createText($element);
-            } else if (is_array($element)) {
+            } elseif (is_array($element)) {
                 $node = $element = $this->createNode($key, $element);
             }
             $point->parentNode->insertBefore($element, $point);
@@ -1071,13 +1124,13 @@ class Horde_Pear_Package_Xml
     public function append($elements, $parent)
     {
         if (!is_array($elements)) {
-            $elements = array($elements);
+            $elements = [$elements];
         }
         $node = null;
         foreach ($elements as $key => $element) {
             if (is_string($element)) {
                 $element = $this->createText($element);
-            } else if (is_array($element)) {
+            } elseif (is_array($element)) {
                 if (isset($element['namespace'])) {
                     $ns = $element['namespace'];
                     unset($element['namespace']);
@@ -1101,7 +1154,7 @@ class Horde_Pear_Package_Xml
         return $this->_xml->createComment($comment);
     }
 
-    public function createNode($name, $attributes = array(), $ns = null)
+    public function createNode($name, $attributes = [], $ns = null)
     {
         if (!$ns) {
             $ns = self::XMLNAMESPACE;

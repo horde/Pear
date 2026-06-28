@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2012-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,10 +12,12 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package\Contents\Ignore;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Contents_Ignore_Symlink;
-use \SplFileInfo;
+use Horde_Pear_Package_Contents_Ignore_Symlink;
+use SplFileInfo;
 
 /**
  * Test the symlink ignore handler for package contents.
@@ -25,6 +28,7 @@ use \SplFileInfo;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class SymlinkTest extends TestCase
 {

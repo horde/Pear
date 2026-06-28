@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2010-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2010-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,22 +22,21 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_Ignore_Git
-implements Horde_Pear_Package_Contents_Ignore
+class Horde_Pear_Package_Contents_Ignore_Git implements Horde_Pear_Package_Contents_Ignore
 {
     /**
      * The regular expressions for ignored files.
      *
      * @var array
      */
-    private $_ignore = array();
+    private $_ignore = [];
 
     /**
      * The regular expressions for files to exclude from ignoring.
      *
      * @var array
      */
-    private $_include = array();
+    private $_include = [];
 
     /**
      * The root position of the repository.
@@ -131,7 +131,7 @@ implements Horde_Pear_Package_Contents_Ignore
     private function _matches($matches, $path)
     {
         foreach ($matches as $match) {
-            preg_match('/' . $match.'/', $path, $find);
+            preg_match('/' . $match . '/', $path, $find);
             if (count($find)) {
                 return true;
             }
@@ -156,14 +156,14 @@ implements Horde_Pear_Package_Contents_Ignore
 
         $x = strtr(
             $s,
-            array(
+            [
                 '?' => '.',
                 '*' => '[^\/]*',
                 '.' => '\\.',
                 '\\' => '\\\\',
                 '/' => '\\/',
-                '-' => '\\-'
-            )
+                '-' => '\\-',
+            ]
         );
 
         if (substr($s, strlen($s) - 1) == DIRECTORY_SEPARATOR) {

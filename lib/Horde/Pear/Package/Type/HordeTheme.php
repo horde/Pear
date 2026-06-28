@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2017-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,8 +22,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Type_HordeTheme
-extends Horde_Pear_Package_Type_Horde
+class Horde_Pear_Package_Type_HordeTheme extends Horde_Pear_Package_Type_Horde
 {
     /**
      * Return the path to the root of the package.
@@ -42,7 +42,7 @@ extends Horde_Pear_Package_Type_Horde
     public function getInclude()
     {
         return new Horde_Pear_Package_Contents_Include_Patterns(
-            array('themes/' . basename($this->_root) . '/*'),
+            ['themes/' . basename($this->_root) . '/*'],
             $this->getRepositoryRoot()
         );
     }

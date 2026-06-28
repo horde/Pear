@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,9 +12,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Access;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Rest_Release;
+use Horde_Pear_Rest_Release;
 
 /**
  * Test the release information parser.
@@ -24,6 +27,7 @@ use \Horde_Pear_Rest_Release;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class ReleaseTest extends TestCase
 {

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,9 +12,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Dependencies;
+use Horde_Pear_Package_Dependencies;
 
 /**
  * Test the dependency handling.
@@ -24,99 +27,106 @@ use \Horde_Pear_Package_Dependencies;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class DependenciesTest extends TestCase
 {
     public function testPhp()
     {
-        $result = array();
+        $result = [];
         Horde_Pear_Package_Dependencies::addDependency(
-            array('min' => '5.2.0'), 'php', 'yes', $result
+            ['min' => '5.2.0'],
+            'php',
+            'yes',
+            $result
         );
         $this->assertEquals(
-            array(
-                array(
+            [
+                [
                     'type' => 'php',
                     'optional' => 'no',
                     'rel' => 'ge',
-                    'version' => '5.2.0'
-                )
-            ),
+                    'version' => '5.2.0',
+                ],
+            ],
             $result
         );
     }
 
     public function testPearinstaller()
     {
-        $result = array();
+        $result = [];
         Horde_Pear_Package_Dependencies::addDependency(
-            array('min' => '1.0.0', 'max' => '2.0.0'),
+            ['min' => '1.0.0', 'max' => '2.0.0'],
             'pearinstaller',
             'yes',
             $result
         );
         $this->assertEquals(
-            array(
-                array(
+            [
+                [
                     'type' => 'pkg',
                     'name' => 'PEAR',
                     'channel' => 'pear.php.net',
                     'optional' => 'no',
                     'rel' => 'ge',
-                    'version' => '1.0.0'
-                ),
-                array(
+                    'version' => '1.0.0',
+                ],
+                [
                     'type' => 'pkg',
                     'name' => 'PEAR',
                     'channel' => 'pear.php.net',
                     'optional' => 'no',
                     'rel' => 'le',
-                    'version' => '2.0.0'
-                )
-            ),
+                    'version' => '2.0.0',
+                ],
+            ],
             $result
         );
     }
 
     public function testPackage()
     {
-        $result = array();
+        $result = [];
         Horde_Pear_Package_Dependencies::addDependency(
-            array('name' => 'test', 'channel' => 'x', 'min' => '1.0.0'),
+            ['name' => 'test', 'channel' => 'x', 'min' => '1.0.0'],
             'package',
             'yes',
             $result
         );
         $this->assertEquals(
-            array(
-                array(
+            [
+                [
                     'name' => 'test',
                     'channel' => 'x',
                     'min' => '1.0.0',
                     'type' => 'pkg',
                     'optional' => 'yes',
                     'rel' => 'ge',
-                    'version' => '1.0.0'
-                ),
-            ),
+                    'version' => '1.0.0',
+                ],
+            ],
             $result
         );
     }
 
     public function testExtension()
     {
-        $result = array();
+        $result = [];
         Horde_Pear_Package_Dependencies::addDependency(
-            array('name' => 'Z'), 'extension', 'yes', $result
+            ['name' => 'Z'],
+            'extension',
+            'yes',
+            $result
         );
         $this->assertEquals(
-            array(
-                array(
+            [
+                [
                     'name' => 'Z',
                     'type' => 'ext',
                     'optional' => 'yes',
-                ),
-            ),
+                ],
+            ],
             $result
         );
     }
@@ -127,9 +137,12 @@ class DependenciesTest extends TestCase
     public function testUnsupported()
     {
         $this->expectException('Horde_Pear_Exception');
-        $result = array();
+        $result = [];
         Horde_Pear_Package_Dependencies::addDependency(
-            array('name' => 'Z'), 'unsupported', 'yes', $result
+            ['name' => 'Z'],
+            'unsupported',
+            'yes',
+            $result
         );
     }
 }

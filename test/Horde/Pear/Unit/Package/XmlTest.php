@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,11 +12,13 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Xml;
-use \Horde_Pear_Package_Contents_List;
-use \Horde_Pear_Package_Type_Horde;
+use Horde_Pear_Package_Xml;
+use Horde_Pear_Package_Contents_List;
+use Horde_Pear_Package_Type_Horde;
 
 /**
  * Test the core package XML handler.
@@ -26,6 +29,7 @@ use \Horde_Pear_Package_Type_Horde;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class XmlTest extends TestCase
 {
@@ -78,14 +82,14 @@ class XmlTest extends TestCase
     {
         $xml = $this->_getFixture();
         $this->assertEquals(
-            array(
-                array(
+            [
+                [
                     'name' => 'Gunnar Wrobel',
                     'user' => 'wrobel',
                     'email' => 'p@rdus.de',
                     'active' => 'yes',
-                )
-            ),
+                ],
+            ],
             $xml->getLeads()
         );
     }
@@ -94,22 +98,22 @@ class XmlTest extends TestCase
     {
         $xml = $this->_getFixture();
         $this->assertEquals(
-            array(
-                array(
+            [
+                [
                     'type' => 'php',
                     'optional' => 'no',
                     'rel' => 'ge',
                     'version' => '5.0.0',
-                ),
-                array(
+                ],
+                [
                     'type' => 'pkg',
                     'name' => 'PEAR',
                     'channel' => 'pear.php.net',
                     'optional' => 'no',
                     'rel' => 'ge',
                     'version' => '1.7.0',
-                )
-            ),
+                ],
+            ],
             $xml->getDependencies()
         );
     }
@@ -458,7 +462,7 @@ class XmlTest extends TestCase
         $parts = explode(DIRECTORY_SEPARATOR, $filename);
         $start = array_shift($parts);
         $rest = join(DIRECTORY_SEPARATOR, $parts);
-        $contents = array();
+        $contents = [];
         foreach ($xml->findNodesRelativeTo('./p:dir', $dir) as $subdir) {
             $name = $subdir->getAttribute('name');
             if ($name == $start) {
@@ -477,7 +481,7 @@ class XmlTest extends TestCase
 
     private function _assertDirectoryContains($xml, $dir, $filename)
     {
-        $contents = array();
+        $contents = [];
         foreach ($xml->findNodesRelativeTo('./p:file', $dir) as $file) {
             $name = $file->getAttribute('name');
             if ($name == $filename) {
@@ -497,7 +501,7 @@ class XmlTest extends TestCase
 
     private function _assertDirectoryNotContains($xml, $dir, $filename)
     {
-        $contents = array();
+        $contents = [];
         foreach ($xml->findNodesRelativeTo('./p:file', $dir) as $file) {
             $contents[] = $file->getAttribute('name');
         }

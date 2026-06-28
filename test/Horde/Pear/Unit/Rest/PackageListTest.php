@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,9 +12,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Access;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Rest_PackageList;
+use Horde_Pear_Rest_PackageList;
 
 /**
  * Test the package list parser.
@@ -24,6 +27,7 @@ use \Horde_Pear_Rest_PackageList;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class PackageListTest extends TestCase
 {
@@ -36,7 +40,7 @@ class PackageListTest extends TestCase
     public function testPackageName()
     {
         $pl = $this->_getPackageList();
-        $this->assertEquals('Horde_ActiveSync', (string)$pl->p[0]);
+        $this->assertEquals('Horde_ActiveSync', (string) $pl->p[0]);
     }
 
     public function testPackageLink()
@@ -48,10 +52,10 @@ class PackageListTest extends TestCase
     public function testGetPackages()
     {
         $this->assertEquals(
-            array(
+            [
                 'Horde_ActiveSync' => '/rest/p/horde_activesync',
-                'Horde_Alarm' => '/rest/p/horde_alarm'
-            ),
+                'Horde_Alarm' => '/rest/p/horde_alarm',
+            ],
             $this->_getPackageList()->getPackages()
         );
     }
@@ -59,7 +63,7 @@ class PackageListTest extends TestCase
     public function testPackageNames()
     {
         $this->assertEquals(
-            array('Horde_ActiveSync', 'Horde_Alarm'), 
+            ['Horde_ActiveSync', 'Horde_Alarm'],
             $this->_getPackageList()->listPackages()
         );
     }
@@ -67,7 +71,7 @@ class PackageListTest extends TestCase
     public function testGetPackageLink()
     {
         $this->assertEquals(
-            '/rest/p/horde_alarm', 
+            '/rest/p/horde_alarm',
             $this->_getPackageList()->getPackageLink('Horde_Alarm')
         );
     }

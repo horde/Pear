@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Horde_Pear_Package_Type_Horde:: deals with packages provided by Horde.
  *
@@ -14,7 +15,7 @@
 /**
  * Deals with packages provided by Horde in the split repository structure.
  *
- * Copyright 2011-2016 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -38,7 +39,7 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
         if (!file_exists($this->getRootPath() . '/.horde.yml')) {
             throw new Horde_Pear_Exception('Cannot find the horde.yml file.');
         }
-        $yml = \Horde\Yaml\Yaml::loadFile($this->getRootPath() . '/.horde.yml');
+        $yml = Horde\Yaml\Yaml::loadFile($this->getRootPath() . '/.horde.yml');
         if (!isset($yml['type'])) {
             throw new Horde_Pear_Exception('Missing type in ' . $this->getRootPath() . '/.horde.yml');
         }
@@ -67,11 +68,11 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
     public function getIgnore()
     {
         return new Horde_Pear_Package_Contents_Ignore_Composite(
-            array(
+            [
                 new Horde_Pear_Package_Contents_Ignore_Dot(),
                 new Horde_Pear_Package_Contents_Ignore_Symlink(),
                 new Horde_Pear_Package_Contents_Ignore_Patterns(
-                    array(
+                    [
                         '*~',
                         'changelog.yml',
                         'conf.php',
@@ -87,7 +88,7 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                         '/.travis.ini',
                         '/.travis.*.ini',
                         '/.travis.yml',
-                    ),
+                    ],
                     $this->getRepositoryRoot()
                 ),
                 new Horde_Pear_Package_Contents_Ignore_Git(
@@ -98,8 +99,8 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
                     $this->getGlobalGitIgnore(),
                     $this->getRepositoryRoot()
                 ),
-                new Horde_Pear_Package_Contents_Ignore_Composer()
-            )
+                new Horde_Pear_Package_Contents_Ignore_Composer(),
+            ]
         );
     }
 
@@ -126,7 +127,7 @@ class Horde_Pear_Package_Type_HordeSplit extends Horde_Pear_Package_Type_Horde
         if (0 !== $result) {
             return '';
         }
-        $files = array();
+        $files = [];
         foreach ($output as $file) {
             $file = preg_replace('/^~\//', $_SERVER['HOME'] . '/', $file);
             if (file_exists($file)) {

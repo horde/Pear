@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,8 +22,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_InstallAs_HordeComponent
-implements Horde_Pear_Package_Contents_InstallAs
+class Horde_Pear_Package_Contents_InstallAs_HordeComponent implements Horde_Pear_Package_Contents_InstallAs
 {
     /**
      * Tell which location the specified file should be installed to.
@@ -38,38 +38,39 @@ implements Horde_Pear_Package_Contents_InstallAs
         $basedir = array_shift($elements);
 
         switch ($basedir) {
-        case 'COPYING':
-        case 'LICENSE':
-        case 'README':
-        case 'README.md':
-        case 'README.rst':
-        case 'examples':
-        case 'js':
-        case 'locale':
-        case 'themes':
-            return substr($file, 1);
+            case 'COPYING':
+            case 'LICENSE':
+            case 'README':
+            case 'README.md':
+            case 'README.rst':
+            case 'examples':
+            case 'js':
+            case 'locale':
+            case 'themes':
+                return substr($file, 1);
 
-        case 'bundle':
-            // Composer packages
-            foreach (array_reverse(explode('_', $package)) as $dir) {
-                array_unshift($elements, $dir);
-            }
-            return join('/', $elements);
-
-        case 'migration':
-            return $basedir . '/' . basename($file);
-
-        case 'doc':
-            foreach (explode('_', $package) as $dir) {
-                if ($elements[0] == $dir) {
-                    array_shift($elements);
-                } else {
-                    break;
+            case 'bundle':
+                // Composer packages
+                foreach (array_reverse(explode('_', $package)) as $dir) {
+                    array_unshift($elements, $dir);
                 }
-            }
-            // Fall through.
-        default:
-            return join('/', $elements);
+                return join('/', $elements);
+
+            case 'migration':
+                return $basedir . '/' . basename($file);
+
+            case 'doc':
+                foreach (explode('_', $package) as $dir) {
+                    if ($elements[0] == $dir) {
+                        array_shift($elements);
+                    } else {
+                        break;
+                    }
+                }
+                // Fall through.
+                // no break
+            default:
+                return join('/', $elements);
         }
     }
 }

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -29,7 +30,7 @@ class Horde_Pear_Package_Contents_PatternsMatcher
      *
      * @var array
      */
-    protected $_patterns = array();
+    protected $_patterns = [];
 
     /**
      * Constructor.
@@ -89,14 +90,14 @@ class Horde_Pear_Package_Contents_PatternsMatcher
 
         $x = strtr(
             $s,
-            array(
+            [
                 '?' => '.',
                 '*' => '.*',
                 '.' => '\\.',
                 '\\' => '\\\\',
                 '/' => '\\/',
-                '-' => '\\-'
-            )
+                '-' => '\\-',
+            ]
         );
 
         if (substr($s, strlen($s) - 1) == DIRECTORY_SEPARATOR) {

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -20,8 +21,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_List
-implements Horde_Pear_Package_Contents
+class Horde_Pear_Package_Contents_List implements Horde_Pear_Package_Contents
 {
     /**
      * The root path for the file listing.
@@ -84,16 +84,16 @@ implements Horde_Pear_Package_Contents
         $list = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($this->_root)
         );
-        $elements = array();
+        $elements = [];
         foreach ($list as $element) {
-            if ($this->_include->isIncluded($element) &&
-                !$this->_ignore->isIgnored($element)) {
+            if ($this->_include->isIncluded($element)
+                && !$this->_ignore->isIgnored($element)) {
                 $file = substr($element->getPathname(), strlen($this->_root));
-                $elements[$file] = array(
+                $elements[$file] = [
                     'role' => $this->_role->getRole($file),
                     'replace' => $this->_role->getReplace($file, $this->_root),
-                    'as' => $this->_install_as->getInstallAs($file, 'Horde_' . basename($this->_root))
-                );
+                    'as' => $this->_install_as->getInstallAs($file, 'Horde_' . basename($this->_root)),
+                ];
             }
         }
         return $elements;

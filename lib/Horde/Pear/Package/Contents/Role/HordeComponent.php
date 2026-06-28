@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,8 +22,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_Role_HordeComponent
-implements Horde_Pear_Package_Contents_Role
+class Horde_Pear_Package_Contents_Role_HordeComponent implements Horde_Pear_Package_Contents_Role
 {
     /**
      * Tell which role the specified file has.
@@ -36,29 +36,29 @@ implements Horde_Pear_Package_Contents_Role
         $elements = explode('/', substr($file, 1));
         $basedir = array_shift($elements);
         switch ($basedir) {
-        case 'config':
-            return 'cfg';
-        case 'bin':
-            return 'script';
-        case 'COPYING':
-        case 'LICENSE':
-        case 'README':
-        case 'README.md':
-        case 'README.rst':
-        case 'doc':
-        case 'examples':
-            return 'doc';
-        case 'data':
-        case 'locale':
-        case 'migration':
-            return 'data';
-        case 'js':
-        case 'themes':
-            return 'horde';
-        case 'test':
-            return 'test';
-        default:
-            return 'php';
+            case 'config':
+                return 'cfg';
+            case 'bin':
+                return 'script';
+            case 'COPYING':
+            case 'LICENSE':
+            case 'README':
+            case 'README.md':
+            case 'README.rst':
+            case 'doc':
+            case 'examples':
+                return 'doc';
+            case 'data':
+            case 'locale':
+            case 'migration':
+                return 'data';
+            case 'js':
+            case 'themes':
+                return 'horde';
+            case 'test':
+                return 'test';
+            default:
+                return 'php';
         }
     }
 
@@ -75,35 +75,35 @@ implements Horde_Pear_Package_Contents_Role
         $elements = explode('/', substr($file, 1));
         $basedir = array_shift($elements);
         switch ($basedir) {
-        case 'bin':
-            $contents = file_get_contents($root . '/' . $file);
-            $replace = array();
-            if (strpos($contents, '#!/usr/bin/env php') === 0) {
-                $replace[] = array(
-                    'from' => '/usr/bin/env php',
-                    'to' => 'php_bin',
-                    'type' => 'pear-config'
-                );
-            }
-            if (strpos($contents, '@php_dir@')) {
-                $replace[] = array(
-                    'from' => '@php_dir@',
-                    'to' => 'php_dir',
-                    'type' => 'pear-config'
-                );
-            }
-            return $replace;
+            case 'bin':
+                $contents = file_get_contents($root . '/' . $file);
+                $replace = [];
+                if (strpos($contents, '#!/usr/bin/env php') === 0) {
+                    $replace[] = [
+                        'from' => '/usr/bin/env php',
+                        'to' => 'php_bin',
+                        'type' => 'pear-config',
+                    ];
+                }
+                if (strpos($contents, '@php_dir@')) {
+                    $replace[] = [
+                        'from' => '@php_dir@',
+                        'to' => 'php_dir',
+                        'type' => 'pear-config',
+                    ];
+                }
+                return $replace;
         }
         $basename = array_pop($elements);
         if ($basename == 'Translation.php') {
             if (strpos(file_get_contents($root . '/' . $file), '@data_dir@')) {
-                return array(array(
+                return [[
                     'from' => '@data_dir@',
                     'to' => 'data_dir',
-                    'type' => 'pear-config'
-                ));
+                    'type' => 'pear-config',
+                ]];
             }
         }
-        return array();
+        return [];
     }
 }

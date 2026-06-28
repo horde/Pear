@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,11 +12,13 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package\Xml;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Xml;
-use \Horde_Pear_Package_Xml_Element_Directory;
-use \Horde_Pear_Package_Xml_Directory;
+use Horde_Pear_Package_Xml;
+use Horde_Pear_Package_Xml_Element_Directory;
+use Horde_Pear_Package_Xml_Directory;
 
 /**
  * Test the directory handler.
@@ -26,17 +29,18 @@ use \Horde_Pear_Package_Xml_Directory;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class DirectoryTest extends TestCase
 {
     public function testGetFiles()
     {
         $this->assertEquals(
-            array(
+            [
                 '/lib/Old.php',
                 '/lib/Stays.php',
-                '/test.php'
-            ),
+                '/test.php',
+            ],
             $this->_getList(__DIR__ . '/../../../fixture/horde/framework/directory')->getFiles()
         );
     }

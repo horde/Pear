@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -165,7 +166,7 @@ class Horde_Pear_Package_Xml_Element_Directory
      */
     public function getSubdirectories()
     {
-        $result = array();
+        $result = [];
         foreach ($this->_xml->findNodesRelativeTo('./p:dir', $this->getDirectoryNode()) as $directory) {
             $name = $directory->getAttribute('name');
             $result[$name] = $this->_xml->createElementDirectory($name, $this);
@@ -181,7 +182,7 @@ class Horde_Pear_Package_Xml_Element_Directory
      */
     public function getFiles()
     {
-        $result = array();
+        $result = [];
         foreach ($this->_xml->findNodesRelativeTo('./p:file', $this->getDirectoryNode()) as $file) {
             $name = $file->getAttribute('name');
             $result[$name] = $this->_xml->createElementFile($name, $this);
@@ -201,7 +202,7 @@ class Horde_Pear_Package_Xml_Element_Directory
      *
      * @return Horde_Pear_Package_Xml_Element_File The inserted element.
      */
-    public function insertFile($name, $role, DOMNode $point = null, $replace = array())
+    public function insertFile($name, $role, ?DOMNode $point = null, $replace = [])
     {
         $element = $this->_xml->createElementFile($name, $this, $role, $replace);
         $element->insert($point);
@@ -217,7 +218,7 @@ class Horde_Pear_Package_Xml_Element_Directory
      *
      * @return Horde_Pear_Package_Xml_Element_Directory The inserted element.
      */
-    public function insertSubDirectory($name, DOMNode $point = null)
+    public function insertSubDirectory($name, ?DOMNode $point = null)
     {
         $element = $this->_xml->createElementDirectory($name, $this);
         $element->insert($this, $point);
@@ -232,9 +233,10 @@ class Horde_Pear_Package_Xml_Element_Directory
      *
      * @return NULL
      */
-    public function insert(Horde_Pear_Package_Xml_Element_Directory $parent,
-                            DOMNode $point = null)
-    {
+    public function insert(
+        Horde_Pear_Package_Xml_Element_Directory $parent,
+        ?DOMNode $point = null
+    ) {
         if ($point === null) {
             $point = $parent->getDirectoryNode()->lastChild;
         } else {
@@ -247,12 +249,12 @@ class Horde_Pear_Package_Xml_Element_Directory
         }
 
         $dir = $this->_xml->insert(
-            array(
+            [
                 "\n " . str_repeat(" ", $this->_level),
-                'dir' => array('name' => $this->_name),
+                'dir' => ['name' => $this->_name],
                 ' ',
-                $this->_xml->createComment(' ' . $this->_path . ' ')
-            ),
+                $this->_xml->createComment(' ' . $this->_path . ' '),
+            ],
             $point
         );
         $this->_xml->append(

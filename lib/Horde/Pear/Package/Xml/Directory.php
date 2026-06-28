@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -41,7 +42,7 @@ class Horde_Pear_Package_Xml_Directory
      *
      * @var array
      */
-    private $_subdirectories = array();
+    private $_subdirectories = [];
 
     /**
      * The list of files in this directory.
@@ -57,9 +58,10 @@ class Horde_Pear_Package_Xml_Directory
      * @param mixed                                    $parent The parent directory
      *                                                         or the XML document.
      */
-    public function __construct(Horde_Pear_Package_Xml_Element_Directory $dir,
-                                $parent)
-    {
+    public function __construct(
+        Horde_Pear_Package_Xml_Element_Directory $dir,
+        $parent
+    ) {
         $this->_element = $dir;
         $this->_parent = $parent;
         $subdirectories = $this->_element->getSubdirectories();
@@ -86,12 +88,12 @@ class Horde_Pear_Package_Xml_Directory
      */
     public function getFiles()
     {
-        $result = array();
+        $result = [];
         foreach ($this->_subdirectories as $directory) {
             $result = array_merge(
                 $result,
                 array_map(
-                    array($this, '_prependDirectory'),
+                    [$this, '_prependDirectory'],
                     $directory->getFiles()
                 )
             );
@@ -99,7 +101,7 @@ class Horde_Pear_Package_Xml_Directory
         $result = array_merge(
             $result,
             array_map(
-                array($this, '_prependDirectory'),
+                [$this, '_prependDirectory'],
                 array_keys($this->_files)
             )
         );
@@ -131,9 +133,10 @@ class Horde_Pear_Package_Xml_Directory
      *
      * @return Horde_Pear_Package_Xml_Directory
      */
-    private function _create(Horde_Pear_Package_Xml_Element_Directory $element,
-                             Horde_Pear_Package_Xml_Directory $parent)
-    {
+    private function _create(
+        Horde_Pear_Package_Xml_Element_Directory $element,
+        Horde_Pear_Package_Xml_Directory $parent
+    ) {
         return $this->_getRoot()->createDirectory($element, $parent);
     }
 
@@ -147,7 +150,8 @@ class Horde_Pear_Package_Xml_Directory
     private function _prependDirectory($path)
     {
         return strtr(
-            $this->_element->getName() . '/' . $path, array('//' => '/')
+            $this->_element->getName() . '/' . $path,
+            ['//' => '/']
         );
     }
 
@@ -175,7 +179,7 @@ class Horde_Pear_Package_Xml_Directory
             basename($file),
             $params['role'],
             $this->_getFileInsertionPoint(basename($file)),
-            isset($params['replace']) ? $params['replace'] : null
+            $params['replace'] ?? null
         );
     }
 
@@ -264,7 +268,7 @@ class Horde_Pear_Package_Xml_Directory
     {
         $keys = array_keys($this->_subdirectories);
         $keys[] = $new;
-        usort($keys, array($this, '_fileOrder'));
+        usort($keys, [$this, '_fileOrder']);
         $pos = array_search($new, $keys);
         if ($pos < count($this->_subdirectories)) {
             return $this->_subdirectories[$keys[$pos + 1]]->getDirectory()->getDirectoryNode();
@@ -273,7 +277,7 @@ class Horde_Pear_Package_Xml_Directory
                 return null;
             } else {
                 $keys = array_keys($this->_files);
-                usort($keys, array($this, '_fileOrder'));
+                usort($keys, [$this, '_fileOrder']);
                 return $this->_files[$keys[0]]->getFileNode();
             }
         }
@@ -303,7 +307,7 @@ class Horde_Pear_Package_Xml_Directory
     {
         $keys = array_keys($this->_files);
         $keys[] = $new;
-        usort($keys, array($this, '_fileOrder'));
+        usort($keys, [$this, '_fileOrder']);
         $pos = array_search($new, $keys);
         if ($pos < count($this->_files)) {
             return $this->_files[$keys[$pos + 1]]->getFileNode();

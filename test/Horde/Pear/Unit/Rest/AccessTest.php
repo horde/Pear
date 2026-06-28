@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,16 +12,18 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Access;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Stub_Request;
-use \Horde_Pear_Rest;
-use \Horde_Http_Client;
-use \Horde_Pear_Rest_Release;
-use \Horde_Support_StringStream;
-use \Horde_Http_Response_Mock;
-use \Horde_Http_Request_Mock;
-use \Horde_Pear_Rest_Package;
+use Horde_Pear_Stub_Request;
+use Horde_Pear_Rest;
+use Horde_Http_Client;
+use Horde_Pear_Rest_Release;
+use Horde_Support_StringStream;
+use Horde_Http_Response_Mock;
+use Horde_Http_Request_Mock;
+use Horde_Pear_Rest_Package;
 
 /**
  * Test the rest access helper.
@@ -31,6 +34,7 @@ use \Horde_Pear_Rest_Package;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class AccessTest extends TestCase
 {
@@ -94,24 +98,24 @@ class AccessTest extends TestCase
         }
         $request = new Horde_Pear_Stub_Request();
         $request->setResponses(
-            array(
-                array(
+            [
+                [
                     'body' => '1.0.0',
                     'code' => 200,
-                ),
-                array(
+                ],
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-                array(
+                ],
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-                array(
+                ],
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-            )
+                ],
+            ]
         );
         return $this->_createRest($request);
     }
@@ -176,7 +180,7 @@ class AccessTest extends TestCase
     private function _createRest($request)
     {
         return new Horde_Pear_Rest(
-            new Horde_Http_Client(array('request' => $request)),
+            new Horde_Http_Client(['request' => $request]),
             'http://test'
         );
     }

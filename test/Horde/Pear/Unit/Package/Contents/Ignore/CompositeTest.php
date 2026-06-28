@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,13 +12,15 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package\Contents\Ignore;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Contents_Ignore_Composite;
-use \Horde_Pear_Package_Contents_Ignore_Patterns;
-use \Horde_Pear_Package_Contents_Ignore_Dot;
-use \Horde_Pear_Package_Contents_Ignore_Hidden;
-use \SplFileInfo;
+use Horde_Pear_Package_Contents_Ignore_Composite;
+use Horde_Pear_Package_Contents_Ignore_Patterns;
+use Horde_Pear_Package_Contents_Ignore_Dot;
+use Horde_Pear_Package_Contents_Ignore_Hidden;
+use SplFileInfo;
 
 /**
  * Test the composite ignore handler for package contents.
@@ -28,6 +31,7 @@ use \SplFileInfo;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class CompositeTest extends TestCase
 {
@@ -78,13 +82,14 @@ class CompositeTest extends TestCase
     private function _getIgnore()
     {
         return new Horde_Pear_Package_Contents_Ignore_Composite(
-            array(
+            [
                 new Horde_Pear_Package_Contents_Ignore_Patterns(
-                    array('*~', 'conf.php', 'CVS/*'), '/'
+                    ['*~', 'conf.php', 'CVS/*'],
+                    '/'
                 ),
                 new Horde_Pear_Package_Contents_Ignore_Dot(),
-                new Horde_Pear_Package_Contents_Ignore_Hidden()
-            )
+                new Horde_Pear_Package_Contents_Ignore_Hidden(),
+            ]
         );
     }
 }

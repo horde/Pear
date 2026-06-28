@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2015-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2015-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -20,8 +21,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_Ignore_Composer
-implements Horde_Pear_Package_Contents_Ignore
+class Horde_Pear_Package_Contents_Ignore_Composer implements Horde_Pear_Package_Contents_Ignore
 {
     /**
      */
@@ -30,14 +30,14 @@ implements Horde_Pear_Package_Contents_Ignore
         $pathname = $element->getPathname();
 
         /* Ignore composer state files. */
-        if ((strpos($pathname, 'bundle/composer.json') !== false) ||
-            (strpos($pathname, 'bundle/composer.lock') !== false)) {
+        if ((strpos($pathname, 'bundle/composer.json') !== false)
+            || (strpos($pathname, 'bundle/composer.lock') !== false)) {
             return true;
         }
 
         /* Ignore composer generated .git data. */
-        if ((strpos($pathname, '/bundle/vendor/') !== false) &&
-            (strpos($pathname, '/.git/') !== false)) {
+        if ((strpos($pathname, '/bundle/vendor/') !== false)
+            && (strpos($pathname, '/.git/') !== false)) {
             return true;
         }
 

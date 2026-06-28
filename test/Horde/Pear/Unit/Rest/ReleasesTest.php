@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,9 +12,11 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Access;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Rest_Releases;
+use Horde_Pear_Rest_Releases;
 
 /**
  * Test the releases parser.
@@ -24,6 +27,7 @@ use \Horde_Pear_Rest_Releases;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class ReleasesTest extends TestCase
 {
@@ -36,25 +40,25 @@ class ReleasesTest extends TestCase
     public function testVersion()
     {
         $rl = $this->_getReleases();
-        $this->assertEquals('1.2.0', (string)$rl->r[0]->v);
+        $this->assertEquals('1.2.0', (string) $rl->r[0]->v);
     }
 
     public function testStability()
     {
         $rl = $this->_getReleases();
-        $this->assertEquals('stable', (string)$rl->r[0]->s);
+        $this->assertEquals('stable', (string) $rl->r[0]->s);
     }
 
     public function testGetReleases()
     {
         $this->assertEquals(
-            array(
+            [
                 '1.0.0' => 'stable',
                 '1.0.0alpha1' => 'alpha',
                 '1.0.0beta1' => 'beta',
                 '1.0.1' => 'stable',
                 '1.2.0' => 'stable',
-            ),
+            ],
             $this->_getReleases()->getReleases()
         );
     }
@@ -62,7 +66,7 @@ class ReleasesTest extends TestCase
     public function testVersions()
     {
         $this->assertEquals(
-            array('1.2.0', '1.0.1', '1.0.0', '1.0.0beta1', '1.0.0alpha1'), 
+            ['1.2.0', '1.0.1', '1.0.0', '1.0.0beta1', '1.0.0alpha1'],
             $this->_getReleases()->listReleases()
         );
     }
@@ -70,7 +74,7 @@ class ReleasesTest extends TestCase
     public function testGetReleaseStability()
     {
         $this->assertEquals(
-            'stable', 
+            'stable',
             $this->_getReleases()->getReleaseStability('1.2.0')
         );
     }
@@ -87,7 +91,7 @@ class ReleasesTest extends TestCase
     public function testGetReleaseStabilityWithStream()
     {
         $this->assertEquals(
-            'stable', 
+            'stable',
             $this->_getStreamReleases()->getReleaseStability('1.2.0')
         );
     }

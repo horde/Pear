@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -52,7 +53,7 @@ class Horde_Pear_Rest_Releases extends Horde_Xml_Element_List
      */
     protected function _buildListItemCache()
     {
-        $entries = array();
+        $entries = [];
         foreach ($this->_element->getElementsByTagName('r') as $child) {
             $entries[] = $child;
         }
@@ -66,9 +67,9 @@ class Horde_Pear_Rest_Releases extends Horde_Xml_Element_List
      */
     private function _buildReleases()
     {
-        $releases = array();
+        $releases = [];
         foreach ($this->r as $r) {
-            $releases[(string)$r->v] = (string)$r->s;
+            $releases[(string) $r->v] = (string) $r->s;
         }
         return $releases;
     }

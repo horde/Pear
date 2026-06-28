@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -20,8 +21,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Task_UpdateContents
-implements Horde_Pear_Package_Task
+class Horde_Pear_Package_Task_UpdateContents implements Horde_Pear_Package_Task
 {
     /**
      * The package.xml handler.
@@ -52,10 +52,11 @@ implements Horde_Pear_Package_Task
      * @param Horde_Pear_Package_Contents $content The content list.
      * @param array                       $options Additional options.
      */
-    public function __construct(Horde_Pear_Package_Xml $xml,
-                                Horde_Pear_Package_Contents $content = null,
-                                $options = array())
-    {
+    public function __construct(
+        Horde_Pear_Package_Xml $xml,
+        ?Horde_Pear_Package_Contents $content = null,
+        $options = []
+    ) {
         $this->_xml = $xml;
         $this->_options = $options;
         if ($content === null) {
@@ -90,20 +91,20 @@ implements Horde_Pear_Package_Task
 
         if (!$contents) {
             $root = $this->_xml->insert(
-                array(
-                    'contents' => array(),
+                [
+                    'contents' => [],
                     "\n ",
-                ),
+                ],
                 $this->_xml->findNode('/p:package/p:dependencies')
             );
             $contents = $this->_xml->append(
-                array(
+                [
                     "\n  ",
-                    'dir' => array('baseinstalldir' => '/', 'name' => '/'),
+                    'dir' => ['baseinstalldir' => '/', 'name' => '/'],
                     ' ',
                     $this->_xml->createComment(' / '),
                     "\n ",
-                ),
+                ],
                 $root
             );
             $this->_xml->append("\n  ", $contents);
@@ -111,19 +112,19 @@ implements Horde_Pear_Package_Task
 
         if (!$filelist) {
             $root = $this->_xml->insert(
-                array(
-                    'phprelease' => array(),
+                [
+                    'phprelease' => [],
                     "\n ",
-                ),
+                ],
                 $this->_xml->findNode('/p:package/p:changelog')
             );
 
             $filelist = $this->_xml->append(
-                array(
+                [
                     "\n  ",
-                    'filelist' => array(),
+                    'filelist' => [],
                     "\n ",
-                ),
+                ],
                 $root
             );
             $this->_xml->append("\n  ", $filelist);

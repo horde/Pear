@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -35,25 +36,25 @@ class Horde_Pear_Package_Dependencies
     public static function addDependency($input, $type, $optional, &$result)
     {
         switch ($type) {
-        case 'php':
-            self::addPhp($input, $result);
-            break;
-        case 'pearinstaller':
-            self::addPear($input, $result);
-            break;
-        case 'package':
-            self::addOther($input, 'pkg', $optional, $result);
-            break;
-        case 'extension':
-            self::addOther($input, 'ext', $optional, $result);
-            break;
-        case '#comment':
-            //ignore
-            break;
-        default:
-            throw new Horde_Pear_Exception(
-                sprintf('Unsupported dependency type "%s"!', $type)
-            );
+            case 'php':
+                self::addPhp($input, $result);
+                break;
+            case 'pearinstaller':
+                self::addPear($input, $result);
+                break;
+            case 'package':
+                self::addOther($input, 'pkg', $optional, $result);
+                break;
+            case 'extension':
+                self::addOther($input, 'ext', $optional, $result);
+                break;
+            case '#comment':
+                //ignore
+                break;
+            default:
+                throw new Horde_Pear_Exception(
+                    sprintf('Unsupported dependency type "%s"!', $type)
+                );
         }
     }
 
@@ -67,10 +68,10 @@ class Horde_Pear_Package_Dependencies
      */
     public static function addPhp($input, &$result)
     {
-        $element = array(
+        $element = [
             'type' => 'php',
             'optional' => 'no',
-        );
+        ];
         self::completeVersions($input, $element, $result);
     }
 
@@ -84,12 +85,12 @@ class Horde_Pear_Package_Dependencies
      */
     public static function addPear($input, &$result)
     {
-        $element = array(
+        $element = [
             'type' => 'pkg',
             'name' => 'PEAR',
             'channel' => 'pear.php.net',
             'optional' => 'no',
-        );
+        ];
         self::completeVersions($input, $element, $result);
     }
 

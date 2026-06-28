@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,10 +12,12 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit\Package\Contents\Ignore;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Package_Contents_Ignore_Git;
-use \SplFileInfo;
+use Horde_Pear_Package_Contents_Ignore_Git;
+use SplFileInfo;
 
 /**
  * Test the .gitignore handler for package contents.
@@ -25,13 +28,14 @@ use \SplFileInfo;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class GitTest extends TestCase
 {
     public function testCreation()
     {
         $a = new Horde_Pear_Package_Contents_Ignore_Git('', '');
-        $this->markTestSkipped('No exception triggered during creation test.');  
+        $this->markTestSkipped('No exception triggered during creation test.');
     }
 
     public function testEmpty()
@@ -78,7 +82,7 @@ class GitTest extends TestCase
     public function testComment()
     {
         $this->assertEquals(
-            array(),
+            [],
             $this->_getIgnore('# COMMENT')->getIncludes()
         );
     }
@@ -86,7 +90,7 @@ class GitTest extends TestCase
     public function testIgnore()
     {
         $this->assertEquals(
-            array('.*[^\/]*\/config\/conf\.d\/[^\/]*\.php$'),
+            ['.*[^\/]*\/config\/conf\.d\/[^\/]*\.php$'],
             $this->_getIgnore('*/config/conf.d/*.php')->getIgnores()
         );
     }
@@ -94,7 +98,7 @@ class GitTest extends TestCase
     public function testInclude()
     {
         $this->assertEquals(
-            array('^\/APP\/[^\/]*$'),
+            ['^\/APP\/[^\/]*$'],
             $this->_getIgnore('!/APP/*')->getIncludes()
         );
     }

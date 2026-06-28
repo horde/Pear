@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -33,22 +34,22 @@ class Horde_Pear_Package_Xml_Factory
     public function create($type, $arguments)
     {
         switch ($type) {
-        case 'Contents':
-            $class = 'Horde_Pear_Package_Xml_Contents';
-            break;
-        case 'Directory':
-            $class = 'Horde_Pear_Package_Xml_Directory';
-            break;
-        case 'ElementDirectory':
-            $class = 'Horde_Pear_Package_Xml_Element_Directory';
-            break;
-        case 'ElementFile':
-            $class = 'Horde_Pear_Package_Xml_Element_File';
-            break;
-        default:
-            throw new InvalidArgumentException(
-                sprintf('Cannot create instance for %s!', $type)
-            );
+            case 'Contents':
+                $class = 'Horde_Pear_Package_Xml_Contents';
+                break;
+            case 'Directory':
+                $class = 'Horde_Pear_Package_Xml_Directory';
+                break;
+            case 'ElementDirectory':
+                $class = 'Horde_Pear_Package_Xml_Element_Directory';
+                break;
+            case 'ElementFile':
+                $class = 'Horde_Pear_Package_Xml_Element_File';
+                break;
+            default:
+                throw new InvalidArgumentException(
+                    sprintf('Cannot create instance for %s!', $type)
+                );
         }
         $reflectionObj = new ReflectionClass($class);
         return $reflectionObj->newInstanceArgs($arguments);

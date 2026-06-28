@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -36,12 +37,13 @@ class Horde_Pear_Remote
      * @param Horde_Pear_Rest $rest   The accessor to the PEAR server rest
      *                                interface.
      */
-    public function __construct($server = 'pear.horde.org',
-                                Horde_Pear_Rest $rest = null)
-    {
+    public function __construct(
+        $server = 'pear.horde.org',
+        ?Horde_Pear_Rest $rest = null
+    ) {
         if ($rest === null) {
             $this->_rest = new Horde_Pear_Rest(
-                new Horde_Http_Client(array('request.timeout' => 10)),
+                new Horde_Http_Client(['request.timeout' => 10]),
                 $server
             );
         } else {
@@ -83,7 +85,7 @@ class Horde_Pear_Remote
             return $this->_rest->fetchLatestRelease($package);
         } else {
             $result = $this->_rest->fetchLatestPackageReleases($package);
-            return isset($result[$stability]) ? $result[$stability] : false;
+            return $result[$stability] ?? false;
         }
     }
 

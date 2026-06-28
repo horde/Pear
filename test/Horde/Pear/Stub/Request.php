@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -27,7 +28,7 @@ class Horde_Pear_Stub_Request extends Horde_Http_Request_Base
      * Mock responses to return
      * @var array
      */
-    protected $_responses = array();
+    protected $_responses = [];
 
     /**
      * Send this HTTP request
@@ -52,9 +53,9 @@ class Horde_Pear_Stub_Request extends Horde_Http_Request_Base
         foreach ($responses as $response) {
             $body = new Horde_Support_StringStream($response['body']);
             $r = new Horde_Http_Response_Mock(
-                isset($response['uri']) ? $response['uri'] : '',
+                $response['uri'] ?? '',
                 $body->fopen(),
-                isset($response['headers']) ? $response['headers'] : array()
+                $response['headers'] ?? []
             );
             if (isset($response['code'])) {
                 $r->code = $response['code'];

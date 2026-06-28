@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -21,8 +22,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Pear
  */
-class Horde_Pear_Package_Contents_InstallAs_HordeApplication
-implements Horde_Pear_Package_Contents_InstallAs
+class Horde_Pear_Package_Contents_InstallAs_HordeApplication implements Horde_Pear_Package_Contents_InstallAs
 {
     /**
      * The package type.
@@ -54,19 +54,19 @@ implements Horde_Pear_Package_Contents_InstallAs
         $elements = explode('/', substr($file, 1));
         $basedir = array_shift($elements);
         switch ($basedir) {
-        case 'bin':
-        case 'doc':
-        case 'docs':
-        case 'test':
-            return join('/', $elements);
-        case 'COPYING':
-        case 'LICENSE':
-        case 'README':
-        case 'README.md':
-        case 'README.rst':
-            return substr($file, 1);
-        default:
-            return $this->_type->getName() . $file;
+            case 'bin':
+            case 'doc':
+            case 'docs':
+            case 'test':
+                return join('/', $elements);
+            case 'COPYING':
+            case 'LICENSE':
+            case 'README':
+            case 'README.md':
+            case 'README.rst':
+                return substr($file, 1);
+            default:
+                return $this->_type->getName() . $file;
         }
     }
 }

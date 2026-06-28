@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -41,7 +42,7 @@ class Horde_Pear_Rest_Dependencies
             $txt = stream_get_contents($txt);
         }
         if ($txt === false) {
-            $this->_deps = array();
+            $this->_deps = [];
         } else {
             $deps = @unserialize($txt);
             if ($deps === false && $txt !== 'b:0;') {
@@ -49,7 +50,7 @@ class Horde_Pear_Rest_Dependencies
                     sprintf('Unable to parse dependency response "%s"!', $txt)
                 );
             }
-            $result = array();
+            $result = [];
             if (isset($deps['required'])) {
                 foreach ($deps['required'] as $type => $required) {
                     $this->_convert($type, $required, 'no', $result);
@@ -77,14 +78,17 @@ class Horde_Pear_Rest_Dependencies
      */
     private function _convert($type, $input, $optional, &$result)
     {
-        if (in_array($type, array('package', 'extension'))
+        if (in_array($type, ['package', 'extension'])
             && !isset($input['name'])) {
             foreach ($input as $element) {
                 $this->_convert($type, $element, $optional, $result);
             }
         } else {
             Horde_Pear_Package_Dependencies::addDependency(
-                $input, $type, $optional, $result
+                $input,
+                $type,
+                $optional,
+                $result
             );
         }
 

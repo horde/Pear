@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -11,12 +12,15 @@
  * @package    Pear
  * @subpackage UnitTests
  */
+
 namespace Horde\Pear\Unit;
+
 use Horde\Pear\TestCase;
-use \Horde_Pear_Stub_Request;
-use \Horde_Support_StringStream;
-use \Horde_Http_Response_Mock;
-use \Horde_Http_Request_Mock;
+use Horde_Pear_Stub_Request;
+use Horde_Support_StringStream;
+use Horde_Http_Response_Mock;
+use Horde_Http_Request_Mock;
+
 /**
  * Test the remote server handler.
  *
@@ -28,6 +32,7 @@ use \Horde_Http_Request_Mock;
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package    Pear
  * @subpackage UnitTests
+ * @coversNothing
  */
 class RemoteTest extends TestCase
 {
@@ -41,7 +46,7 @@ class RemoteTest extends TestCase
     public function testListPackagesContainsComponents()
     {
         $this->assertEquals(
-            array('A', 'B'),
+            ['A', 'B'],
             $this->getRemoteList()->listPackages()
         );
     }
@@ -89,7 +94,7 @@ class RemoteTest extends TestCase
     public function testDependencies()
     {
         $this->assertEquals(
-            array(array('name' => 'test', 'type' => 'pkg', 'optional' => 'no')),
+            [['name' => 'test', 'type' => 'pkg', 'optional' => 'no']],
             $this->_getRemoteDependencies()->getDependencies('A', '1.0.0')
         );
     }
@@ -116,7 +121,7 @@ class RemoteTest extends TestCase
         if (!class_exists('Horde_Http_Client')) {
             $this->markTestSkipped('Horde_Http is missing!');
         }
-        $string = serialize(array('required' => array('package' => array('name' => 'test'))));
+        $string = serialize(['required' => ['package' => ['name' => 'test']]]);
         $body = new Horde_Support_StringStream($string);
         $response = new Horde_Http_Response_Mock('', $body->fopen());
         $response->code = 200;
@@ -132,28 +137,28 @@ class RemoteTest extends TestCase
         }
         $request = new Horde_Pear_Stub_Request();
         $request->setResponses(
-            array(
-                array(
+            [
+                [
                     'body' => '1.0.0',
                     'code' => 200,
-                ),
-                array(
+                ],
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-                array(
+                ],
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-                array(
+                ],
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-                array(
+                ],
+                [
                     'body' => $this->_getRelease(),
                     'code' => 200,
-                ),
-            )
+                ],
+            ]
         );
         return $this->createRemote($request);
     }
@@ -165,12 +170,12 @@ class RemoteTest extends TestCase
         }
         $request = new Horde_Pear_Stub_Request();
         $request->setResponses(
-            array(
-                array(
+            [
+                [
                     'body' => '',
                     'code' => 404,
-                ),
-            )
+                ],
+            ]
         );
         return $this->createRemote($request);
     }
@@ -182,16 +187,16 @@ class RemoteTest extends TestCase
         }
         $request = new Horde_Pear_Stub_Request();
         $request->setResponses(
-            array(
-                array(
+            [
+                [
                     'body' => '1.0.0',
                     'code' => 200,
-                ),
-                array(
+                ],
+                [
                     'body' => $this->_getRelease(),
                     'code' => 200,
-                ),
-            )
+                ],
+            ]
         );
         return $this->createRemote($request);
     }
@@ -203,14 +208,14 @@ class RemoteTest extends TestCase
         }
         $request = new Horde_Pear_Stub_Request();
         $request->setResponses(
-            array(
-                array(
+            [
+                [
                     'body' => file_get_contents(
                         __DIR__ . '/../fixture/rest/package.xml'
                     ),
                     'code' => 404,
-                ),
-            )
+                ],
+            ]
         );
         return $this->createRemote($request);
     }
